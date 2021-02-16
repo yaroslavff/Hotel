@@ -1,4 +1,6 @@
+// Шрифты и их миксины
 @import './modules/fonts';
+// Цвета
 @import './modules/colors';
 
 * {
@@ -8,4 +10,14 @@
 body {
     margin: 0;
     padding: 0;
+}
+
+.normal {
+    @include normal
+}
+.bold {
+    @include bold
+}
+.another {
+    @include quicksand
 }
