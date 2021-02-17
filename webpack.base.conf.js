@@ -99,6 +99,12 @@ module.exports = {
       filename: './index.html',
       inject: true
     }),
+    new HtmlWebpackPlugin({
+      hash: false,
+      template: `${PATHS.src}/interface/interface.pug`,
+      filename: './interface.html',
+      inject: true
+    }),
     new CopyWebpackPlugin({
       patterns: [
         // { from: `${PATHS.src}/img`, to: `${PATHS.dist}/img` },

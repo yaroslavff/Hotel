@@ -1,23 +1,39 @@
-// Шрифты и их миксины
-@import './modules/fonts';
-// Цвета
-@import './modules/colors';
+// Шрифты, их миксины и типы текста
+@import './utils/fonts';
+// Цвета и градиент
+@import './utils/colors';
 
 * {
     box-sizing: border-box;
 }
 
-body {
+.body {
     margin: 0;
     padding: 0;
+    @include reg;
+    font-size: 14px;
+    line-height: 24px;
+    @include dark(0.75);
 }
 
-.normal {
-    @include normal
+.h1 {
+    @include bold;
+    font-size: 24px;
+    line-height: 29px;
+    @include dark;
 }
-.bold {
-    @include bold
+
+.h2 {
+    @include bold;
+    font-size: 19px;
+    line-height: 23px;
+    @include dark;
 }
-.another {
-    @include quicksand
+
+.h3 {
+    @include bold;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    @include dark;
 }
