@@ -1,0 +1,64 @@
+@mixin dark($opacity: 1, $property: color) {
+    #{$property}: rgba(31, 32, 65, $opacity);
+}
+
+$purple: #BC9CFF;
+$green: #6FCF97;
+$bodyBcg: #E5E5E5;
+
+$primaryGradient: 180deg, $purple 0%, #8BA4F9 100%;
+$secondaryGradient: 180deg, $green 0%, #66D2EA 100%;
+
+// UI kit стили
+
+.colors{
+    &__card{
+        margin-bottom: 20px;
+        width: 280px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &:last-child{
+            margin: 0;
+        }
+    }
+
+    &__description{
+        width: 171px;
+        font-size: 19px;
+        line-height: 28px;
+        @include dark;
+    }
+
+    &__title {
+        @include bold;
+    }
+
+    &__coub{
+        width: 70px;
+        height: 70px;
+        border-radius: 6px;
+        &_dark100 {
+            @include dark(1, background-color);
+        }
+        &_dark75 {
+            @include dark(0.75, background-color);
+        }
+        &_dark50 {
+            @include dark(0.50, background-color);
+        }
+        &_dark25 {
+            @include dark(0.25, background-color);
+        }
+        &_dark5 {
+            @include dark(0.05, background-color);
+        }
+        &_purple {
+            background-color: $purple;
+        }
+        &_green {
+            background-color: $green;
+        }
+    }
+
+}

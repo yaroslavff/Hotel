@@ -1,9 +1,0 @@
-@mixin dark($opacity: 1, $property: 'color') {
-    #{$property}: rgba(31, 32, 65, $opacity);
-}
-
-$purple: #BC9CFF;
-$green: #6FCF97;
-
-$primaryGradient: 180deg, $purple 0%, #8BA4F9 100%;
-$secondaryGradient: 180deg, $green 0%, #66D2EA 100%;

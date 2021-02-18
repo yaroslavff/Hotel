@@ -1,19 +1,28 @@
 // Шрифты, их миксины и типы текста
-@import './utils/fonts';
+@import './textTypes/fonts';
 // Цвета и градиент
-@import './utils/colors';
+@import './colors/colors';
 
 * {
     box-sizing: border-box;
 }
 
-.body {
+img {
+    max-width: 100%;
+}
+
+.page {
     margin: 0;
     padding: 0;
     @include reg;
     font-size: 14px;
     line-height: 24px;
     @include dark(0.75);
+
+    &__container {
+        max-width: 1980px;
+        margin: 0 150px;
+    }
 }
 
 .h1 {
@@ -36,4 +45,12 @@
     line-height: 15px;
     text-transform: uppercase;
     @include dark;
+}
+
+// UI kit стили
+
+.types-block {
+    padding: 150px 0;
+    display: flex;
+    justify-content: space-between;
 }

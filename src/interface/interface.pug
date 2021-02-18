@@ -1,10 +1,18 @@
 extends ../templates/main
+include colors/colors
 
 block content
-    .wrapper
-        .h1 This one is the sub-section or widget title
-        .h2 Next one is the item title inside widgets
-        .h3 This is a label or CTA text
-        div 
-            | This is the body text which is used for most
-            | of the design, like paragraphs, lists, etc.
+    .types
+        .page__container
+            .types-block
+                .colors
+                    +colorsBlock('dark100', 'Dark Shade 100%')
+                    +colorsBlock('dark75', 'Dark Shade 75%')
+                    +colorsBlock('dark50', 'Dark Shade 50%')
+                    +colorsBlock('dark25', 'Dark Shade 25%')
+                    +colorsBlock('dark5', 'Dark Shade 5%')
+                    +colorsBlock('purple', 'Purple', '#BC9CFF')
+                    +colorsBlock('green', 'Green', '#6FCF97')
+                .text
+                    include textTypes/fonts
+                    

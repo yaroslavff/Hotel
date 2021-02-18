@@ -39,3 +39,31 @@
     font-weight: 400;
 	font-style: normal;
 }
+
+// UI kit стили
+
+@import '../colors/colors';
+
+.text{
+    &__card {
+        display: flex;
+        margin-bottom: 51px;
+        &:last-child{
+            margin: 0;
+        }
+    }
+
+    &__title {
+        width: 37px;
+        text-align: right;
+        @include dark(0.25);
+        &_normal {
+            @include reg
+        }
+    }
+
+    &__subtitle{
+        padding-left: 30px;
+        width: 369px;
+    }
+}
