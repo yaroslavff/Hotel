@@ -2,6 +2,8 @@
 @import './textTypes/fonts';
 // Цвета и градиент
 @import './colors/colors';
+// Отдельные элементы форм
+@import './form_elements/form';
 
 * {
     box-sizing: border-box;
@@ -15,42 +17,41 @@ img {
     margin: 0;
     padding: 0;
     @include reg;
-    font-size: 14px;
-    line-height: 24px;
+    @include pageText;
     @include dark(0.75);
-
-    &__container {
-        max-width: 1980px;
-        margin: 0 150px;
-    }
 }
 
-.h1 {
-    @include bold;
-    font-size: 24px;
-    line-height: 29px;
-    @include dark;
+.container {
+    max-width: 1980px;
+    margin: 0 150px;
 }
 
-.h2 {
-    @include bold;
-    font-size: 19px;
-    line-height: 23px;
-    @include dark;
-}
+// .h1 {
+//     @include bold;
+//     font-size: 24px;
+//     line-height: 29px;
+//     @include dark;
+// }
 
-.h3 {
-    @include bold;
-    font-size: 12px;
-    line-height: 15px;
-    text-transform: uppercase;
-    @include dark;
-}
+// .h2 {
+//     @include bold;
+//     font-size: 19px;
+//     line-height: 23px;
+//     @include dark;
+// }
+
+// .h3 {
+//     @include bold;
+//     font-size: 12px;
+//     line-height: 15px;
+//     text-transform: uppercase;
+//     @include dark;
+// }
 
 // UI kit стили
 
 .types-block {
-    padding: 150px 0;
+    padding: 75px 0;
     display: flex;
     justify-content: space-between;
 }

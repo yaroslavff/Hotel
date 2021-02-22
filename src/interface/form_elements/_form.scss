@@ -1,0 +1,66 @@
+.form {
+    &__field {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__description {
+        display: flex;
+        justify-content: space-between;
+        @include dark;
+        @include bold;
+        @include labelText(uppercase);
+    }
+
+    &__input {
+        padding-top: 12px;
+        padding-bottom: 8px;
+        padding-left: 15px;
+        width: 320px;
+        height: 44px;
+        margin-bottom: 20px;
+        @include dark(0.25, border);
+        border-radius: 4px;
+        outline: none;
+        &:last-child {
+            margin: 0;
+        }
+        &::placeholder {
+            @include dark(0.25);
+        }
+        &:focus, &:hover, &:active {
+            @include dark(0.5, border);
+            &::placeholder {
+                @include dark(0.5);
+            }
+        }
+    }
+
+    &__subtitle {
+        @include reg;
+        @include dark(0.5)
+    }
+
+}
+
+.date {
+    outline: none;
+    &::-webkit-calendar-picker-indicator {
+        display: none;
+    }
+    &::-webkit-datetime-edit-fields-wrapper {
+        @include dark(0.25);
+        @include pageText(uppercase);
+        &:focus, &:hover, &:active {
+            @include dark(0.5);
+        }
+    }
+    // &::-webkit-datetime-edit { padding: 1em; &:focus, &:hover, &:active{ text-decoration: none; outline: none;} }
+    // &::-webkit-datetime-edit-fields-wrapper { background: silver; &:focus, &:hover, &:active{ text-decoration: none; outline: none;} }
+    // &::-webkit-datetime-edit-text { color: red; padding: 0 0.3em; &:focus, &:hover, &:active{ text-decoration: none; outline: none;} }
+    // &::-webkit-datetime-edit-month-field { color: blue; &:focus, &:hover, &:active{ text-decoration: none; outline: none;} }
+    // &::-webkit-datetime-edit-day-field { color: green; &:focus, &:hover, &:active{ text-decoration: none; outline: none;} }
+    // &::-webkit-datetime-edit-year-field { color: purple; &:focus, &:hover, &:active{ text-decoration: none; outline: none;} }
+    // &::-webkit-inner-spin-button { display: none; &:focus, &:hover, &:active{ text-decoration: none; outline: none;} }
+    // &::-webkit-calendar-picker-indicator { background: orange; &:focus, &:hover, &:active{ text-decoration: none; outline: none;} }
+}

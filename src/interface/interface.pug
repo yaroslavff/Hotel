@@ -1,9 +1,10 @@
 extends ../templates/main
 include colors/colors
+include form_elements/form
 
 block content
     .types
-        .page__container
+        .container
             .types-block
                 .colors
                     +colorsBlock('dark100', 'Dark Shade 100%')
@@ -15,4 +16,14 @@ block content
                     +colorsBlock('green', 'Green', '#6FCF97')
                 .text
                     include textTypes/fonts
+    .form
+        .container
+            .types-block
+                .form__elements
+                    .form__inputs
+                        +textField({type: 'text', placeholder: 'Email', title: 'Text Field', subtitle: 'Default', subtitleActive: true, inputClass: 'form__input'})
+                        +textField({type: 'text', title: 'Text Field', subtitle: 'Hover/Focus', inputClass: 'form__input'})
+                        +textField({type: 'date', title: 'Text Field', inputClass: 'date form__input'})
+                    .form__toggle
+                    .form__button
                     
