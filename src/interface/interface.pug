@@ -3,27 +3,27 @@ include colors/colors
 include form_elements/form
 
 block content
-    .types
-        .container
-            .types-block
-                .colors
-                    +colorsBlock('dark100', 'Dark Shade 100%')
-                    +colorsBlock('dark75', 'Dark Shade 75%')
-                    +colorsBlock('dark50', 'Dark Shade 50%')
-                    +colorsBlock('dark25', 'Dark Shade 25%')
-                    +colorsBlock('dark5', 'Dark Shade 5%')
-                    +colorsBlock('purple', 'Purple', '#BC9CFF')
-                    +colorsBlock('green', 'Green', '#6FCF97')
-                .text
-                    include textTypes/fonts
+    //- .types
+    //-     .container
+    //-         .types-block
+    //-             .colors
+    //-                 +colorsBlock('dark100', 'Dark Shade 100%')
+    //-                 +colorsBlock('dark75', 'Dark Shade 75%')
+    //-                 +colorsBlock('dark50', 'Dark Shade 50%')
+    //-                 +colorsBlock('dark25', 'Dark Shade 25%')
+    //-                 +colorsBlock('dark5', 'Dark Shade 5%')
+    //-                 +colorsBlock('purple', 'Purple', '#BC9CFF')
+    //-                 +colorsBlock('green', 'Green', '#6FCF97')
+    //-             .text
+    //-                 include textTypes/fonts
     .form
         .container
             .types-block
                 .form__elements
                     .form__inputs
-                        +textField({type: 'text', placeholder: 'Email', title: 'Text Field', subtitle: 'Default', subtitleActive: true, inputClass: 'form__input'})
-                        +textField({type: 'text', title: 'Text Field', subtitle: 'Hover/Focus', inputClass: 'form__input'})
-                        +textField({type: 'date', title: 'Text Field', inputClass: 'date form__input'})
+                        +inputField({type: 'text', placeholder: 'Email', title: 'Text Field', subtitle: 'Default', subtitleActive: true})
+                        +inputField({type: 'text', placeholder: 'This is pretty awesome', title: 'Text Field', subtitle: 'Hover/Focus'})
+                        +inputField({type: 'text', placeholder: 'Сколько гостей', title: 'Text Field', subtitle: 'Dropdown'})
+                        +inputField({type: 'text', placeholder: 'ДД.ММ.ГГГГ', title: 'masked text field', inputClass: 'form__input-date'})
                     .form__toggle
                     .form__button
-                    

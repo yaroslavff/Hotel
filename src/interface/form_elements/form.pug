@@ -1,12 +1,16 @@
-mixin textField(options)
+mixin inputField(options)
     -
         var subtitleClass = ('form__subtitle')
         //- subtitleClass += options.subtitleActive ? '_active' : ''
         var inputClass = ('form__input')
-        inputClass += ` ${options.inputClass}`
+        if(Boolean(options.inputClass) == true) {
+            inputClass += ` ${options.inputClass}`
+        } else {
+            inputClass = inputClass
+        }
 
     .form__field
         .form__description
             .form__title= options.title
             div(class = subtitleClass)= options.subtitle
-        input(name = options.name, class = inputClass, type = options.type, placeholder = options.placeholder)
+        input(name = options.name, class = inputClass, type = options.type, placeholder = options.placeholder, id = options.id)
