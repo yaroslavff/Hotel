@@ -1,16 +1,47 @@
 mixin inputField(options)
     -
-        var subtitleClass = ('form__subtitle')
-        //- subtitleClass += options.subtitleActive ? '_active' : ''
-        var inputClass = ('form__input')
+        let inputField = ('input__field')
+        if(Boolean(options.inputField) == true) {
+            inputField += ` ${options.inputField}`
+        } else {
+            inputField = inputField
+        }
+
+        let inputClass = ('input__content')
         if(Boolean(options.inputClass) == true) {
             inputClass += ` ${options.inputClass}`
         } else {
             inputClass = inputClass
         }
 
-    .form__field
-        .form__description
-            .form__title= options.title
+    div(class = inputField)
+        .input__description
+            .input__title= options.title
             div(class = subtitleClass)= options.subtitle
         input(name = options.name, class = inputClass, type = options.type, placeholder = options.placeholder, id = options.id)
+
+mixin dropdawnField(options)
+    -
+        let dropdawnField = ('input__field dropdawn')
+        if(Boolean(options.dropdawnField) == true) {
+            dropdawnField += ` ${options.dropdawnField}`
+        } else {
+            dropdawnField = dropdawnField
+        }
+
+        let inputClass = ('input__content')
+        if(Boolean(options.inputClass) == true) {
+            inputClass += ` ${options.inputClass}`
+        } else {
+            inputClass = inputClass
+        }
+
+    div(class = dropdawnField)
+        .input__description
+            .input__title= options.title
+            div(class = 'input__subtitle')= options.subtitle
+        div(class = inputClass)
+            div(class = "dropdawn__field")
+                div(name = options.name, class = options.dropdawnClass, id = options.id)= options.placeholder
+                div(class = "arrow")
+                    span(class = "dropdawn__arrow")
