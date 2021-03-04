@@ -7,18 +7,22 @@
     &__description {
         display: flex;
         justify-content: space-between;
-        @include dark;
-        @include bold;
-        @include labelText(uppercase);
         margin-bottom: 5px;
         &:last-child {
             margin: 0;
         }
     }
 
+    &__title {
+        @include bold;
+        @include dark;
+        @include labelText(uppercase);
+    }
+
     &__subtitle {
         @include reg;
-        @include dark(0.5)
+        @include dark(0.5);
+        @include labelText(uppercase);
     }
 
     &__content {
@@ -50,6 +54,9 @@
         &_small {
             width: 150px;
         }
+        &_middle {
+            width: 266px;
+        }
     }
     
     &__dropdawn {
@@ -69,15 +76,6 @@
         height: 100%;
     }
 
-    &__arrow {
-        display: inline-block;
-        width: 9px;
-        height: 9px;
-        border-right: 3px solid rgba(31, 32, 65, 0.5);
-        border-top: 3px solid rgba(31, 32, 65, 0.5);
-        transform: rotate(135deg);
-    }
-
     &__date {
         display: flex;
         justify-content: space-between;
@@ -90,6 +88,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    &__list {
+        display: inline-block;
+        width: 9px;
+        height: 9px;
+        border-right: 3px solid rgba(31, 32, 65, 0.5);
+        border-top: 3px solid rgba(31, 32, 65, 0.5);
+        transform: rotate(135deg);
+    }
+
+    &__subscribe {
+
+    }
 }
 
 .small-margin {

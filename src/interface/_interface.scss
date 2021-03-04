@@ -3,10 +3,21 @@
 // Цвета и градиент
 @import './colors/colors';
 // Отдельные элементы форм
-@import './form_elements/form';
+@import './form_elements/inputs/input';
 
-* {
-    box-sizing: border-box;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p {
+    margin: 0;
 }
 
 img {
@@ -25,28 +36,6 @@ img {
     max-width: 1980px;
     margin: 0 150px;
 }
-
-// .h1 {
-//     @include bold;
-//     font-size: 24px;
-//     line-height: 29px;
-//     @include dark;
-// }
-
-// .h2 {
-//     @include bold;
-//     font-size: 19px;
-//     line-height: 23px;
-//     @include dark;
-// }
-
-// .h3 {
-//     @include bold;
-//     font-size: 12px;
-//     line-height: 15px;
-//     text-transform: uppercase;
-//     @include dark;
-// }
 
 // UI kit стили
 
