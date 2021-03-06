@@ -83,6 +83,7 @@
 }
 
 .arrow {
+    cursor: pointer;
     width: 44px;
     height: 100%;
     display: flex;
@@ -91,15 +92,57 @@
 
     &__list {
         display: inline-block;
-        width: 9px;
-        height: 9px;
-        border-right: 3px solid rgba(31, 32, 65, 0.5);
-        border-top: 3px solid rgba(31, 32, 65, 0.5);
+        width: 8px;
+        height: 8px;
+        border-right: 2px solid rgba(31, 32, 65, 0.5);
+        border-top: 2px solid rgba(31, 32, 65, 0.5);
         transform: rotate(135deg);
     }
 
     &__subscribe {
+        position: relative;
+        width: 14px;
+        height: 2px;
+        background: white;
+        left:0;
+        display: block;
 
+        &::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 2px;
+            top: -3px;
+            right: -2px;
+            background: white;
+            transform: rotate(45deg);
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 2px;
+            top: 3px;
+            right: -2px;
+            background: white;
+            transform: rotate(-45deg);
+        }
+
+        &_purple,
+        &_purple::after,
+        &_purple::before {
+            background: linear-gradient($primaryGradient);
+        }
+    }
+}
+.sub-wrapper {
+    position: relative;
+    display: inline-block;
+    &__arrow {
+        position: absolute;
+        top: 0;
+        right: 0;
     }
 }
 

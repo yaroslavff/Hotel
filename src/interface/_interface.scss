@@ -34,13 +34,19 @@ img {
 
 .container {
     max-width: 1980px;
-    margin: 0 150px;
+    padding: 0 140px;
+    margin: 0 auto;
 }
 
-// UI kit стили
-
-.types-block {
-    padding: 75px 0;
+.section-wrapper {
     display: flex;
     justify-content: space-between;
+}
+
+.types {
+    margin: 140px 0;
+}
+
+.form__elements {
+    margin-bottom: 100px;
 }

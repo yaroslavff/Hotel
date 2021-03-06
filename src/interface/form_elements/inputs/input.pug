@@ -1,13 +1,13 @@
 mixin inputField(options)
     -
-        let inputField = ('input__field')
+        let inputField = ("input__field")
         if(Boolean(options.inputField) == true) {
             inputField += ` ${options.inputField}`
         } else {
             inputField = inputField
         }
 
-        let inputClass = ('input__content')
+        let inputClass = ("input__content")
         if(Boolean(options.inputClass) == true) {
             inputClass += ` ${options.inputClass}`
         } else {
@@ -17,19 +17,19 @@ mixin inputField(options)
     div(class = inputField)
         .input__description
             h2.input__title= options.title
-            p(class = 'input__subtitle')= options.subtitle
+            p(class = "input__subtitle")= options.subtitle
         input(name = options.name, class = inputClass, type = options.type, placeholder = options.placeholder, id = options.id)
 
 mixin dropdawnField(options)
     -
-        let dropdawnField = ('input__field dropdawn')
+        let dropdawnField = ("input__field dropdawn")
         if(Boolean(options.dropdawnField) == true) {
             dropdawnField += ` ${options.dropdawnField}`
         } else {
             dropdawnField = dropdawnField
         }
 
-        let inputClass = ('input__content')
+        let inputClass = ("input__content")
         if(Boolean(options.inputClass) == true) {
             inputClass += ` ${options.inputClass}`
         } else {
@@ -39,9 +39,39 @@ mixin dropdawnField(options)
     div(class = dropdawnField)
         .input__description
             h2.input__title= options.title
-            p(class = 'input__subtitle')= options.subtitle
+            p(class = "input__subtitle")= options.subtitle
         div(class = inputClass)
             div(class = "dropdawn__field")
                 div(name = options.name, class = options.dropdawnClass, id = options.id)= options.placeholder
                 div(class = "arrow")
                     span(class = "arrow__list")
+
+mixin subField(options)
+    -
+        let inputField = ("input__field")
+        if(Boolean(options.inputField) == true) {
+            inputField += ` ${options.inputField}`
+        } else {
+            inputField = inputField
+        }
+
+        let inputClass = ("input__content")
+        if(Boolean(options.inputClass) == true) {
+            inputClass += ` ${options.inputClass}`
+        } else {
+            inputClass = inputClass
+        }
+
+        let arrowSub = ("arrow__subscribe")
+        if(options.isPurple == true) {
+            arrowSub += ` arrow__subscribe_purple`
+        }
+
+    div(class = inputField)
+        .input__description
+            h2.input__title= options.title
+            p(class = "input__subtitle")= options.subtitle
+        div(class = "sub-wrapper input__content_middle")
+            input(name = options.name, class = inputClass, type = options.type, placeholder = options.placeholder, id = options.id)
+            div(class = "arrow sub-wrapper__arrow")
+                span(class = arrowSub)

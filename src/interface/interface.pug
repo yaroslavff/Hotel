@@ -5,7 +5,7 @@ include form_elements/inputs/input
 block content
     //- .types
     //-     .container
-    //-         .types-block
+    //-         section.section-wrapper
     //-             .colors
     //-                 +colorsBlock('dark100', 'Dark Shade 100%')
     //-                 +colorsBlock('dark75', 'Dark Shade 75%')
@@ -18,8 +18,8 @@ block content
     //-                 include textTypes/fonts
     .form
         .container
-            .types-block
-                .form__elements
+            .form__elements
+                section.section-wrapper
                     .input
                         +inputField({type: 'text', placeholder: 'Email', title: 'Text Field', subtitle: 'Default', inputField: 'small-margin'})
                         +inputField({type: 'text', placeholder: 'This is pretty awesome', title: 'Text Field', subtitle: 'Hover / Focus', inputClass: 'input__content_active', inputField: 'small-margin'})
@@ -29,6 +29,6 @@ block content
                             +dropdawnField({placeholder: 'ДД.ММ.ГГГГ', title: 'date dropdown', inputClass: 'input__content_small'})
                             +dropdawnField({placeholder: '19.08.2019', title: 'date dropdown', inputClass: 'input__content_small'})
                         +dropdawnField({placeholder: '19 авг - 23 авг', title: 'filter date dropdown', dropdawnField: 'big-margin', inputClass: 'input__content_middle'})
-                        +dropdawnField({placeholder: 'Email', title: 'subscription text field', inputClass: 'input__content_middle'})
-                    .toggle
-                    .button
+                        +subField({type: 'text', placeholder: 'Email', title: 'subscription text field', inputClass: 'input__content_middle', isPurple: true})
+                    //- .toggle
+                    //- .button
