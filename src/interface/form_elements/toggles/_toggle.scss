@@ -1,0 +1,118 @@
+.checkbox {
+    &__title {
+        @include bold;
+        @include dark;
+        @include labelText(uppercase);
+        padding-bottom: 16px;
+    }
+
+    &__description {
+        cursor: pointer;
+        display: flex;
+        position: relative;
+        @include pageText(none, 18px);
+        @include reg;
+        @include dark(0.5);
+        margin-bottom: 10px;
+        &:last-child {
+            margin: 0;
+        }
+        user-select: none;
+    }
+
+    &__input {
+        position: absolute;
+        opacity: 0;
+        z-index: -1;
+
+        &+.checkbox__description::before {
+            content: "";
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            @include dark(0.25, border);
+            border-radius: 4px;
+            background: #FFFFFF;
+            margin-right: 10px;
+        }
+
+        &:checked+.checkbox__description::before {
+            border: 1px solid $purple;
+        }
+
+        &:checked+.checkbox__description::after {
+            content: "";
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            width: 8px;
+            height: 6px;
+            border-width: 2px;
+            border-style: solid;
+            border-left: none;
+            border-bottom: none;
+            border-color: transparent;
+            border-image: linear-gradient($primaryGradient);
+            border-image-slice: 1;
+            transform: rotate(135deg);
+        }
+    }
+}
+
+.radio {
+    
+    &__title {
+        @include bold;
+        @include dark;
+        @include labelText(uppercase);
+        padding-bottom: 14px;
+    }
+
+    &__description {
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        position: relative;
+        @include pageText;
+        @include reg;
+        @include dark(0.75);
+        margin-right: 20px;
+        &:last-child {
+            margin: 0;
+        }
+        user-select: none;
+    }
+
+    &__input {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+
+        &+.radio__description::before {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            @include dark(0.25, border);
+            border-radius: 10px;
+            margin-right: 10px;
+        }
+
+        &:checked+.radio__description::before {
+            border: 1px solid $purple;
+        }
+
+        &:checked+.radio__description::after {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 4px;
+            width: 12px;
+            height: 12px;
+            border-radius: 10px;
+            background: linear-gradient($primaryGradient);
+            transition: 4s;
+        }
+    }
+}  

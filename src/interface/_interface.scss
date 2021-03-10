@@ -2,8 +2,10 @@
 @import './textTypes/fonts';
 // Цвета и градиент
 @import './colors/colors';
-// Отдельные элементы форм
+// Поля ввода для форм и дропдаунов
 @import './form_elements/inputs/input';
+// Чекбоксы и радио-кнопки
+@import './form_elements/toggles/toggle';
 
 *,
 *::before,
@@ -16,8 +18,10 @@ h1,
 h2,
 h3,
 h4,
-p {
+p,
+input {
     margin: 0;
+    padding: 0;
 }
 
 img {

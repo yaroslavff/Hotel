@@ -1,6 +1,7 @@
 extends ../templates/main
 include colors/colors
 include form_elements/inputs/input
+include form_elements/toggles/toggle
 
 block content
     //- .types
@@ -20,7 +21,7 @@ block content
         .container
             .form__elements
                 section.section-wrapper
-                    .input
+                    .inputs
                         +inputField({type: 'text', placeholder: 'Email', title: 'Text Field', subtitle: 'Default', inputField: 'small-margin'})
                         +inputField({type: 'text', placeholder: 'This is pretty awesome', title: 'Text Field', subtitle: 'Hover / Focus', inputClass: 'input__content_active', inputField: 'small-margin'})
                         +dropdawnField({placeholder: 'Сколько гостей', title: 'Dropdown', dropdawnField: 'small-margin'})
@@ -30,5 +31,7 @@ block content
                             +dropdawnField({placeholder: '19.08.2019', title: 'date dropdown', inputClass: 'input__content_small'})
                         +dropdawnField({placeholder: '19 авг - 23 авг', title: 'filter date dropdown', dropdawnField: 'big-margin', inputClass: 'input__content_middle'})
                         +subField({type: 'text', placeholder: 'Email', title: 'subscription text field', inputClass: 'input__content_middle', isPurple: true})
-                    //- .toggle
-                    //- .button
+                    .toggles
+                        +checkButton({title: "Checkbox Buttons", isChecked: true, checkField: 'big-margin'})
+                        +radioButton({title: "Radio Buttons", isChecked: true, radioField: 'big-margin'})
+                    //- .buttons

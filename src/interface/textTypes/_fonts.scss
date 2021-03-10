@@ -60,9 +60,9 @@
     text-transform: $textTransform;
 }
 
-@mixin pageText($textTransform: none) {
+@mixin pageText($textTransform: none, $lineHeight: 24px) {
     font-size: 14px;
-    line-height: 24px;
+    line-height: $lineHeight;
     text-transform: $textTransform;
 }
 

@@ -1,8 +1,7 @@
 .input {
-    &__field {
-        display: flex;
-        flex-direction: column;
-    }
+    
+    display: flex;
+    flex-direction: column;
 
     &__description {
         display: flex;
@@ -136,6 +135,7 @@
         }
     }
 }
+
 .sub-wrapper {
     position: relative;
     display: inline-block;

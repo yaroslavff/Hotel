@@ -1,0 +1,56 @@
+mixin checkButton(options)
+    -
+        let isChecked = false
+        if(options.isChecked == true) {
+            isChecked = true
+        }
+
+        let checkField = ("checkbox")
+        if(Boolean(options.checkField) == true) {
+            checkField += ` ${options.checkField}`
+        } else {
+            checkField = checkField
+        }
+
+    div(class = checkField)
+        .checkbox__title= options.title
+        .checkbox__wrapper
+            input(type = "checkbox", id = "smoking", class = "checkbox__input")
+            label(for = "smoking", class = "checkbox__description")
+                p Можно курить
+
+            input(type = "checkbox", id = "pets", class = "checkbox__input", checked = isChecked)
+            label(for = "pets", class = "checkbox__description")
+                p Можно с питомцами
+
+            input(type = "checkbox", id = "frends", class = "checkbox__input", checked = isChecked)
+            label(for = "frends", class = "checkbox__description")
+                p  
+                    |Можно пригласить гостей
+                    br
+                    |(до 10 человек)
+
+mixin radioButton(options)
+    -
+        let isChecked = false
+        if(options.isChecked == true) {
+            isChecked = true
+        }
+
+        let radioField = ("radio")
+        if(Boolean(options.radioField) == true) {
+            radioField += ` ${options.radioField}`
+        } else {
+            radioField = radioField
+        }
+
+    div(class = radioField)
+        .radio__title= options.title
+        .radio__wrapper
+            input(type = "radio", name = "sex",id = "man", class = "radio__input", checked = isChecked)
+            label(for = "man", class = "radio__description")
+                p Мужчина
+            
+            input(type = "radio", name = "sex",id = "woman", class = "radio__input")
+            label(for = "woman", class = "radio__description")
+                p Женщина
