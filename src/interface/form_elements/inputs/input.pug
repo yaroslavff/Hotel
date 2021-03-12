@@ -16,8 +16,8 @@ mixin inputField(options)
 
     div(class = inputField)
         .input__description
-            h2.input__title= options.title
-            p(class = "input__subtitle")= options.subtitle
+            h3.main-title= options.title
+            span(class = "input__subtitle")= options.subtitle
         input(name = options.name, class = inputClass, type = options.type, placeholder = options.placeholder, id = options.id)
 
 mixin dropdawnField(options)
@@ -38,13 +38,13 @@ mixin dropdawnField(options)
 
     div(class = dropdawnField)
         .input__description
-            h2.input__title= options.title
-            p(class = "input__subtitle")= options.subtitle
+            h3.main-title= options.title
+            span(class = "input__subtitle")= options.subtitle
         div(class = inputClass)
             div(class = "dropdawn__field")
                 div(name = options.name, class = options.dropdawnClass, id = options.id)= options.placeholder
                 div(class = "arrow")
-                    span(class = "arrow__list")
+                    div(class = "arrow__list")
 
 mixin subField(options)
     -
@@ -69,9 +69,9 @@ mixin subField(options)
 
     div(class = inputField)
         .input__description
-            h2.input__title= options.title
-            p(class = "input__subtitle")= options.subtitle
+            h3.main-title= options.title
+            span(class = "input__subtitle")= options.subtitle
         div(class = "sub-wrapper input__content_middle")
             input(name = options.name, class = inputClass, type = options.type, placeholder = options.placeholder, id = options.id)
             div(class = "arrow sub-wrapper__arrow")
-                span(class = arrowSub)
+                div(class = arrowSub)

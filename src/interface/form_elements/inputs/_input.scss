@@ -12,21 +12,13 @@
         }
     }
 
-    &__title {
-        @include bold;
-        @include dark;
-        @include labelText(uppercase);
-    }
-
     &__subtitle {
-        @include reg;
         @include dark(0.5);
         @include labelText(uppercase);
     }
 
     &__content {
         @include dark(0.25, border);
-        @include pageText;
         @include reg;
         @include dark(0.75);
         padding-left: 15px;

@@ -5,33 +5,35 @@ include form_elements/toggles/toggle
 
 block content
     //- .types
-    //-     .container
-    //-         section.section-wrapper
-    //-             .colors
-    //-                 +colorsBlock('dark100', 'Dark Shade 100%')
-    //-                 +colorsBlock('dark75', 'Dark Shade 75%')
-    //-                 +colorsBlock('dark50', 'Dark Shade 50%')
-    //-                 +colorsBlock('dark25', 'Dark Shade 25%')
-    //-                 +colorsBlock('dark5', 'Dark Shade 5%')
-    //-                 +colorsBlock('purple', 'Purple', '#BC9CFF')
-    //-                 +colorsBlock('green', 'Green', '#6FCF97')
-    //-             .text
-    //-                 include textTypes/fonts
+        .container
+            section.section-wrapper
+                .colors
+                    +colorsBlock("dark100", "Dark Shade 100%")
+                    +colorsBlock("dark75", "Dark Shade 75%")
+                    +colorsBlock("dark50", "Dark Shade 50%")
+                    +colorsBlock("dark25", "Dark Shade 25%")
+                    +colorsBlock("dark5", "Dark Shade 5%")
+                    +colorsBlock("purple", "Purple", "#BC9CFF")
+                    +colorsBlock("green", "Green", "#6FCF97")
+                .text
+                    include textTypes/fonts
     .form
         .container
             .form__elements
                 section.section-wrapper
                     .inputs
-                        +inputField({type: 'text', placeholder: 'Email', title: 'Text Field', subtitle: 'Default', inputField: 'small-margin'})
-                        +inputField({type: 'text', placeholder: 'This is pretty awesome', title: 'Text Field', subtitle: 'Hover / Focus', inputClass: 'input__content_active', inputField: 'small-margin'})
-                        +dropdawnField({placeholder: 'Сколько гостей', title: 'Dropdown', dropdawnField: 'small-margin'})
-                        +inputField({type: 'text', placeholder: 'ДД.ММ.ГГГГ', title: 'masked text field', inputClass: 'input__content-date', inputField: 'big-margin'})
-                        div(class = 'dropdawn__date big-margin')
-                            +dropdawnField({placeholder: 'ДД.ММ.ГГГГ', title: 'date dropdown', inputClass: 'input__content_small'})
-                            +dropdawnField({placeholder: '19.08.2019', title: 'date dropdown', inputClass: 'input__content_small'})
-                        +dropdawnField({placeholder: '19 авг - 23 авг', title: 'filter date dropdown', dropdawnField: 'big-margin', inputClass: 'input__content_middle'})
-                        +subField({type: 'text', placeholder: 'Email', title: 'subscription text field', inputClass: 'input__content_middle', isPurple: true})
+                        +inputField({type: "text", placeholder: "Email", title: "Text Field", subtitle: "Default", inputField: "small-margin"})
+                        +inputField({type: "text", placeholder: "This is pretty awesome", title: "Text Field", subtitle: "Hover / Focus", inputClass: "input__content_active", inputField: "small-margin"})
+                        +dropdawnField({placeholder: "Сколько гостей", title: "Dropdown", dropdawnField: "small-margin"})
+                        +inputField({type: "text", placeholder: "ДД.ММ.ГГГГ", title: "masked text field", inputClass: "js-input__content-date", inputField: "big-margin"})
+                        div(class = "dropdawn__date big-margin")
+                            +dropdawnField({placeholder: "ДД.ММ.ГГГГ", title: "date dropdown", inputClass: "input__content_small"})
+                            +dropdawnField({placeholder: "19.08.2019", title: "date dropdown", inputClass: "input__content_small"})
+                        +dropdawnField({placeholder: "19 авг - 23 авг", title: "filter date dropdown", dropdawnField: "big-margin", inputClass: "input__content_middle"})
+                        +subField({type: "text", placeholder: "Email", title: "subscription text field", inputClass: "input__content_middle", isPurple: true})
                     .toggles
-                        +checkButton({title: "Checkbox Buttons", isChecked: true, checkField: 'big-margin'})
-                        +radioButton({title: "Radio Buttons", isChecked: true, radioField: 'big-margin'})
+                        +checkButton({title: "Checkbox Buttons", isChecked: true, checkField: "big-margin"})
+                        +radioButton({title: "Radio Buttons", isChecked: true, radioField: "big-margin"})
+                        +switchButton({hideTitle: false, switchButtonActive: true})
+                        +switchButton({hideTitle: true})
                     //- .buttons

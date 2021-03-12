@@ -42,7 +42,7 @@ module.exports = {
       test: /\.(png|jpg|gif|svg|)$/,
       loader: 'file-loader',
       options: {
-        name: '${PATHS.dist}/fonts/[name].[ext]'
+        name: '[name].[ext]'
       }
     }, {
       test: /\.scss$/,

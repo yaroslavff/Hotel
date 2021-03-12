@@ -42,15 +42,28 @@ img {
     margin: 0 auto;
 }
 
+.main-title {
+    @include bold;
+    @include dark;
+    @include labelText(uppercase);
+}
+
+.hidden-content {
+    display: none;
+}
+
+// UI kit стили
+
 .section-wrapper {
     display: flex;
     justify-content: space-between;
 }
 
 .types {
-    margin: 140px 0;
+    margin-bottom: 100px;
 }
 
 .form__elements {
     margin-bottom: 100px;
 }
+
