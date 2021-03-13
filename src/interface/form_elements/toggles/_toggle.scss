@@ -4,6 +4,31 @@
     to {opacity: 1;}
 }
 
+@keyframes switch-on {
+    from {
+        left: 3px;
+        @include dark(0.25, background);
+    }
+
+    to {
+        left: 23px;
+        background: linear-gradient($primaryGradient);
+    }
+}
+
+@keyframes switch-off {
+    from {
+        left: 23px;
+        background: linear-gradient($primaryGradient);
+    }
+
+    to {
+        left: 3px;
+        @include dark(0.25, background);
+    }
+
+}
+
 .checkbox {
     &__title {
         padding-bottom: 16px;
@@ -125,6 +150,7 @@
 
     &__descr {
         cursor: pointer;
+        user-select: none;
     }
 
     &__btn {
@@ -146,6 +172,8 @@
             left: 3px;
             @include dark(0.25, background);
             border-radius: 10px;
+            transition: 0.2s;
+            animation: switch-off 0.2s ease;
         }
 
         &_active {
@@ -154,6 +182,7 @@
             &::after {
                 left: 23px;
                 background: linear-gradient($primaryGradient);
+                animation: switch-on 0.2s ease;
             }
         }
     }
