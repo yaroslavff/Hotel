@@ -36,10 +36,14 @@ block content
                         +radioButton({title: "Radio Buttons", isChecked: true, radioField: "big-margin"})
                         +switchButton({hideTitle: false, switchButtonActive: true})
                         +switchButton({hideTitle: true, switchField: "big-margin"})
-                        .like-field
-                            div(class = "like-field__title main-title") like button
+                        div(class = "like-field big-margin")
+                            h3(class = "like-field__title main-title") like button
                             .like-field__content
                                 +likeButton({})
                                 +likeButton({isLiked: true})
+                        .rating-field
+                            h3(class = "rating-field__title main-title") rate button
+                            .rating-field__content
+                                +rateButton()
                         
                     //- .buttons

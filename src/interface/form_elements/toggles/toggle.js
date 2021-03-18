@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
         if(hearts[i].classList.contains("like__btn_active")) {
             hearts[i].innerHTML = "<img src = 'img/favorite.svg' alt = 'сердце'>";
-            
+
             counterNumber = 12;
             counters[i].textContent = counterNumber;
         } else {
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
             counters[i].textContent = counterNumber;
         }
 
-        btn.addEventListener("click", (event) => {
+        btn.addEventListener("click", () => {
             
 
             if(hearts[i].classList.contains("like__btn_active")) {

@@ -283,5 +283,33 @@
     }
 }
 
+.rating {
+    width: 120px;
+    height: 24px;
+
+    &-field {
+        width: 260px;
+
+        &__title {
+            margin-bottom: 16px;
+        }
+    }
+}
 
 
+.rating:not(:checked) > input {
+	display: none;
+}
+.rating:not(:checked) > label {
+	float: left;
+	width: 24px;
+    font-size: 24px;
+	cursor: pointer;
+	color: $mainColor;
+}
+.rating:not(:checked) > label:before {
+	content: '☆';
+}
+.rating:checked > label:before {
+	content: '★';
+}
