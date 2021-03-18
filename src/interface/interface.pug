@@ -35,5 +35,11 @@ block content
                         +checkButton({title: "Checkbox Buttons", isChecked: true, checkField: "big-margin"})
                         +radioButton({title: "Radio Buttons", isChecked: true, radioField: "big-margin"})
                         +switchButton({hideTitle: false, switchButtonActive: true})
-                        +switchButton({hideTitle: true})
+                        +switchButton({hideTitle: true, switchField: "big-margin"})
+                        .like-field
+                            div(class = "like-field__title main-title") like button
+                            .like-field__content
+                                +likeButton({})
+                                +likeButton({isLiked: true})
+                        
                     //- .buttons

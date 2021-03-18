@@ -6,12 +6,12 @@
     }
 }
 
-$purple: #BC9CFF;
-$green: #6FCF97;
+$mainColor: #BC9CFF;
+$secondColor: #6FCF97;
 $bodyBcg: #E5E5E5;
 
-$primaryGradient: 180deg, $purple 0%, #8BA4F9 100%;
-$secondaryGradient: 180deg, $green 0%, #66D2EA 100%;
+$primaryGradient: 180deg, $mainColor 0%, #8BA4F9 100%;
+$secondaryGradient: 180deg, $secondColor 0%, #66D2EA 100%;
 
 // UI kit стили
 
@@ -58,10 +58,10 @@ $secondaryGradient: 180deg, $green 0%, #66D2EA 100%;
             @include dark(0.05, background-color);
         }
         &_purple {
-            background-color: $purple;
+            background-color: $mainColor;
         }
         &_green {
-            background-color: $green;
+            background-color: $secondColor;
         }
     }
 
