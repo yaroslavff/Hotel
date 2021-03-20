@@ -105,15 +105,21 @@ mixin likeButton(options)
         div(class = likeBtn)
         span(class = counter)
 
-mixin rateButton(options)
+mixin rateButton(rate)
+    -
+        let star4 = ""
+        let star5 = ""
+
+        if(rate == 4) {
+            star4 = ("rating__star_active")
+        } if(rate == 5) {
+            star4 = ("rating__star_active")
+            star5 = ("rating__star_active")
+        }
+
     .rating
-        input(type = "radio", id = "star-1", class = "rating__content", name = "star", value = "5")
-        label(for = "star-1", class = "rating__star") 
-        input(type = "radio", id = "star-2", class = "rating__star", name = "star", value = "4")
-        label(for = "star-2", class = "rating__star") 
-        input(type = "radio", id = "star-3", class = "rating__star", name = "star", value = "3")
-        label(for = "star-3", class = "rating__star") 
-        input(type = "radio", id = "star-4", class = "rating__star", name = "star", value = "2")
-        label(for = "star-4", class = "rating__star") 
-        input(type = "radio", id = "star-5", class = "rating__star", name = "star", value = "1")
-        label(for = "star-5", class = "rating__star") 
+        span(class = `rating__star rating__star_active`)
+        span(class = `rating__star rating__star_active`)
+        span(class = `rating__star rating__star_active`)
+        span(class = `rating__star ${star4}`)
+        span(class = `rating__star ${star5}`)

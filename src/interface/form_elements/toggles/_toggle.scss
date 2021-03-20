@@ -284,8 +284,28 @@
 }
 
 .rating {
+    
     width: 120px;
     height: 24px;
+
+    & > span::before {
+        content: '☆';
+        color: $mainColor;
+    }
+
+    & > span.rating__star_active::before {
+        content: '★';
+    }
+    
+    &__star {
+        width: 24px;
+        height: 100%;
+        font-size: 24px;
+        margin: 0;
+        padding: 0;
+
+        
+    }
 
     &-field {
         width: 260px;
@@ -293,23 +313,9 @@
         &__title {
             margin-bottom: 16px;
         }
+
+        &__content {
+            display: inline-flex;
+        }
     }
-}
-
-
-.rating:not(:checked) > input {
-	display: none;
-}
-.rating:not(:checked) > label {
-	float: left;
-	width: 24px;
-    font-size: 24px;
-	cursor: pointer;
-	color: $mainColor;
-}
-.rating:not(:checked) > label:before {
-	content: '☆';
-}
-.rating:checked > label:before {
-	content: '★';
 }
