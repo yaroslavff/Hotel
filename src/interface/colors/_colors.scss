@@ -10,6 +10,8 @@ $mainColor: #BC9CFF;
 $secondColor: #6FCF97;
 $bodyBcg: #E5E5E5;
 
+$transparentMainColor: transparentize($mainColor, 0.5);
+
 $primaryGradient: 180deg, $mainColor 0%, #8BA4F9 100%;
 $secondaryGradient: 180deg, $secondColor 0%, #66D2EA 100%;
 

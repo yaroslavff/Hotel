@@ -2,6 +2,7 @@ extends ../templates/main
 include colors/colors
 include form_elements/inputs/input
 include form_elements/toggles/toggle
+include form_elements/buttons/button
 
 block content
     //- .types
@@ -46,5 +47,17 @@ block content
                             .rating-field__content
                                 +rateButton(4)
                                 +rateButton()
-                        
-                    //- .buttons
+                    .buttons
+                        div.button-wrapper
+                            h3(class = "button-wrapper__title main-title") buttons
+                            .button-wrapper__content
+                                .button-wrapper__normal
+                                    +button({text: "click me"})
+                                    +button({text: "click me", isActive: true})
+                                    +button({text: "click me", whiteButton: true})
+                                    +button({text: "click me", whiteButton: true, isActive: true})
+                                .button-wrapper__descr
+                                    span.button-wrapper__text click me
+                                    span(class = "button-wrapper__text button-wrapper__text_dark") click me
+                                .button-wrapper__big
+                                    +button({text: "перейти к оплате", bigButton: true, arrow: true})

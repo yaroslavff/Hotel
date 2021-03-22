@@ -1,0 +1,75 @@
+.button {
+    position: relative;
+
+    &-big {
+        width: 320px;
+    }
+
+    &-wrapper {
+        &__title {
+            margin-bottom: 16px;
+        }
+
+        &__normal {
+            width: 220px;
+            height: 118px;
+            display: flex;
+            justify-content: space-between;
+            align-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        &__big {
+            margin-bottom: 40px;
+        }
+
+        &__descr {
+            margin: 30px 0 30px 0;
+        }
+
+        &__text {
+            @include bold;
+            @include labelText(uppercase);
+            color: $mainColor;
+            margin-right: 20px;
+            &_dark {
+                @include dark(0.5);
+            }
+        }
+    }
+
+    &__content {
+        cursor: pointer;
+        padding: 14px 20px 15px 20px;
+        border-radius: 22px;
+        background: linear-gradient($primaryGradient);
+        color: white;
+        @include bold;
+        @include labelText(uppercase);
+        border: none;
+        outline: none;
+
+        &:active {
+            opacity: 0.5;
+        }
+
+        &_white {
+            padding: 12px 18px 13px 18px;
+            border: 2px solid $mainColor;
+            color: $mainColor;
+            background: white;
+            &:active {
+                opacity: 1;
+                border: 2px solid $transparentMainColor;
+            }
+        }
+
+        &_active {
+            opacity: 0.5;
+            &-white {
+                opacity: 1;
+                border: 2px solid $transparentMainColor;
+            }
+        }
+    }
+}

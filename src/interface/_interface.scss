@@ -1,11 +1,13 @@
-// Шрифты, их миксины и типы текста
+// Fonts and fonts mixin
 @import './textTypes/fonts';
-// Цвета и градиент
+// Colors and gradient
 @import './colors/colors';
-// Поля ввода для форм и дропдаунов
+// Input and dropdawn input
 @import './form_elements/inputs/input';
-// Чекбоксы и радио-кнопки
+// Checkbox, radio, switch
 @import './form_elements/toggles/toggle';
+// Buttons, range slider and pagination
+@import './form_elements/buttons/button';
 
 *,
 *::before,
