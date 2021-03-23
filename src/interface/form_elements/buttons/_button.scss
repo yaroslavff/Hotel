@@ -1,3 +1,61 @@
+.range {
+    width: 266px;
+    margin-bottom: 40px;
+
+    &__descr {
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__subtitle {
+        @include labelText;
+        @include dark(0.5);
+    }
+
+    &__bar {
+        display: flex;
+        justify-content: center;
+        width: 266px;
+        height: 6px;
+        @include dark(0.25, border);
+        border-radius: 3px;
+    }
+
+    &__select {
+        width: 88px;
+        height: 6px;
+        background: linear-gradient($secondaryGradient);
+        position: relative;
+
+        &::before {
+            content: "";
+            cursor: pointer;
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            top: -5px;
+            left: -6px;
+            background: linear-gradient($secondaryGradient);
+            border: 2px solid #FFFFFF;
+            border-radius: 10px;
+        }
+
+        &::after {
+            content: "";
+            cursor: pointer;
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            top: -5px;
+            right: -6px;
+            background: linear-gradient($secondaryGradient);
+            border: 2px solid #FFFFFF;
+            border-radius: 10px;
+        }
+    }
+}
+
 .button {
     position: relative;
 
