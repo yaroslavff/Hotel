@@ -22,6 +22,65 @@ mixin inputField(options)
 
 mixin dropdawnField(options)
     -
+        let dropdawnField = "input dropdawn"
+        if(Boolean(options.dropdawnField) == true) {
+            dropdawnField += ` ${options.dropdawnField}`
+        } else {
+            dropdawnField = dropdawnField
+        }
+
+        let inputClass = "input__content dropdawn-panel-input"
+        if(Boolean(options.inputClass) == true) {
+            inputClass += ` ${options.inputClass}`
+        } else {
+            inputClass = inputClass
+        }
+
+        //- let guest = false
+        //- if(options.guest == true) {
+        //-     guest = true
+        //- }
+
+        //- let panel = "hidden-content"
+        //- if(pantel == true) {
+        //-     panel = "panel"
+        //- }
+
+    div(class = dropdawnField)
+        .input__description
+            h3.main-title= options.title
+            span(class = "input__subtitle")= options.subtitle
+        div(class = inputClass)
+            div(class = "dropdawn__field")
+                div(name = options.name, class = options.dropdawnClass, id = options.id)= options.text
+                div(class = "arrow")
+                    div(class = "arrow__list")
+        div(class = `dropdawn-panel ${options.inputClass}`)
+            .dropdawn-panel__wrapper
+                div(class = "dropdawn-panel__content counter")
+                    div
+                        span(class = "main-title") спальни
+                    div.counter__content
+                        button.counter__min -
+                        span(class = "counter__num main-title") 0
+                        button.counter__max +
+                div(class = "dropdawn-panel__content counter")
+                    div
+                        span(class = "main-title") кровати
+                    div.counter__content
+                        button.counter__min -
+                        span(class = "counter__num main-title") 0
+                        button.counter__max +
+                div(class = "dropdawn-panel__content counter")
+                    div
+                        span(class = "main-title") ванные комнаты
+                    div.counter__content
+                        button.counter__min -
+                        span(class = "counter__num main-title") 0
+                        button.counter__max +
+
+mixin dropdawnDateField(options)
+    -
         let dropdawnField = ("input dropdawn")
         if(Boolean(options.dropdawnField) == true) {
             dropdawnField += ` ${options.dropdawnField}`
@@ -42,27 +101,27 @@ mixin dropdawnField(options)
             span(class = "input__subtitle")= options.subtitle
         div(class = inputClass)
             div(class = "dropdawn__field")
-                div(name = options.name, class = options.dropdawnClass, id = options.id)= options.placeholder
+                div(name = options.name, class = options.dropdawnClass, id = options.id)= options.text
                 div(class = "arrow")
                     div(class = "arrow__list")
 
 mixin subField(options)
     -
-        let inputField = ("input")
+        let inputField = "input"
         if(Boolean(options.inputField) == true) {
             inputField += ` ${options.inputField}`
         } else {
             inputField = inputField
         }
 
-        let inputClass = ("input__content")
+        let inputClass = "input__content"
         if(Boolean(options.inputClass) == true) {
             inputClass += ` ${options.inputClass}`
         } else {
             inputClass = inputClass
         }
 
-        let arrowSub = ("arrow__subscribe")
+        let arrowSub = "arrow__subscribe"
         if(options.isPurple == true) {
             arrowSub += ` arrow__subscribe_purple`
         }
