@@ -29,7 +29,7 @@ mixin dropdawnField(options)
             dropdawnField = dropdawnField
         }
 
-        let inputClass = "input__content dropdawn-panel-input"
+        let inputClass = "input__content js-input__content"
         if(Boolean(options.inputClass) == true) {
             inputClass += ` ${options.inputClass}`
         } else {
@@ -41,10 +41,10 @@ mixin dropdawnField(options)
         //-     guest = true
         //- }
 
-        //- let panel = "hidden-content"
-        //- if(pantel == true) {
-        //-     panel = "panel"
-        //- }
+        let panel = "hidden-content js-dropdawn-panel"
+        if(pantel == true) {
+            panel = "dropdawn-panel js-dropdawn-panel"
+        }
 
     div(class = dropdawnField)
         .input__description
@@ -52,32 +52,32 @@ mixin dropdawnField(options)
             span(class = "input__subtitle")= options.subtitle
         div(class = inputClass)
             div(class = "dropdawn__field")
-                div(name = options.name, class = options.dropdawnClass, id = options.id)= options.text
+                span(class = "js-input-text", id = options.id)
                 div(class = "arrow")
                     div(class = "arrow__list")
-        div(class = `dropdawn-panel ${options.inputClass}`)
+        div(class = `${panel} ${options.inputClass}`)
             .dropdawn-panel__wrapper
                 div(class = "dropdawn-panel__content counter")
                     div
                         span(class = "main-title") спальни
-                    div.counter__content
-                        button.counter__min -
-                        span(class = "counter__num main-title") 0
-                        button.counter__max +
+                    div(class = "counter__content js-counter__content")
+                        button(class = "counter__min js-counter__min bedroom-min") -
+                        span(class = "counter__num js-counter__num main-title") 2
+                        button(class = "counter__max js-counter__max bedroom-max") +
                 div(class = "dropdawn-panel__content counter")
                     div
                         span(class = "main-title") кровати
-                    div.counter__content
-                        button.counter__min -
-                        span(class = "counter__num main-title") 0
-                        button.counter__max +
+                    div(class = "counter__content js-counter__content")
+                        button(class = "counter__min js-counter__min bed-min") -
+                        span(class = "counter__num js-counter__num main-title") 2
+                        button(class = "counter__max js-counter__max bed-max") +
                 div(class = "dropdawn-panel__content counter")
                     div
                         span(class = "main-title") ванные комнаты
-                    div.counter__content
-                        button.counter__min -
-                        span(class = "counter__num main-title") 0
-                        button.counter__max +
+                    div(class = "counter__content js-counter__content")
+                        button(class = "counter__min js-counter__min bathroom-min", disabled) -
+                        span(class = "counter__num js-counter__num main-title") 0
+                        button(class = "counter__max js-counter__max bathroom-max") +
 
 mixin dropdawnDateField(options)
     -
