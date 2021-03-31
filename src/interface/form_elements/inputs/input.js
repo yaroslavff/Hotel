@@ -9,7 +9,7 @@ $(function() {
 
 // dropdawn-panel
 
-const dropInput = document.querySelectorAll(".js-input__content");
+const inputText = document.querySelectorAll(".js-input__content");
 const dropdawn = document.querySelectorAll(".js-dropdawn-panel");
 
 let toggleDropPanel = (input, item, itemClass) => {
@@ -29,7 +29,7 @@ let toggleDropPanel = (input, item, itemClass) => {
 
 };
 
-dropInput.forEach((input, i) => {
+inputText.forEach((input, i) => {
     
     input.addEventListener("click", (e) => {
 
@@ -43,53 +43,72 @@ dropInput.forEach((input, i) => {
 
 });
 
+const dropdawnAmenities = document.querySelector(`[data-dropdawn="amenities"]`);
+const counterAmenities = dropdawnAmenities.querySelectorAll(`.js-counter__content`);
+const decrAmenities = dropdawnAmenities.querySelectorAll(".js-counter__min");
+const incrAmenities = dropdawnAmenities.querySelectorAll(".js-counter__max");
+const counterNumAmenities = dropdawnAmenities.querySelectorAll(".js-counter__num");
+const inputTextAmenities = dropdawnAmenities.querySelector(".dropdawn__field span");
 
-const counter = document.querySelectorAll(".js-counter__content");
-const counterDecr = document.querySelectorAll(".js-counter__min");
-const counterIncr = document.querySelectorAll(".js-counter__max");
-const counterNum = document.querySelectorAll(".js-counter__num");
-const dropText = document.querySelectorAll(".dropdawn__field span");
+const dropdawnGuest = document.querySelector(`[data-dropdawn="guest"]`);
+const counterGuest = dropdawnGuest.querySelectorAll(`.js-counter__content`);
+const decrGuest = dropdawnGuest.querySelectorAll(".js-counter__min");
+const incrGuest = dropdawnGuest.querySelectorAll(".js-counter__max");
+const counterNumGuest = dropdawnGuest.querySelectorAll(".js-counter__num");
+const inputTextGuest = dropdawnGuest.querySelector(".dropdawn__field span");
+const choiceBtnGuest = document.querySelector(".choice-button");
 
 let bedroom = 2,
     bed = 2,
-    bathroom = 0;
+    bathroom = 0,
+    adults = 0,
+    children = 0,
+    babys = 0;
 
 showCountOfAmenities();
 
-counter.forEach((item, i) => {
+counterAmenities.forEach((item, i) => {
+    
+    if(decrAmenities[i].classList.contains("bedroom-min")) {
+        counterNumAmenities[i].textContent = bedroom;
+    } if(decrAmenities[i].classList.contains("bed-min")) {
+        counterNumAmenities[i].textContent = bed;
+    } if(decrAmenities[i].classList.contains("bathroom-min")) {
+        counterNumAmenities[i].textContent = bathroom;
+    }
 
     item.addEventListener("click", (e) => {
 
         if(e.target && e.target.nodeName === "BUTTON") {
 
-            if(e.target == counterDecr[i]) {
+            if(e.target == decrAmenities[i]) {
                 if(e.target.classList.contains("bedroom-min")) {
                     bedroom--;
-                    counterNum[i].textContent = bedroom;
-                    disabledThisButton(bedroom, 1, counterDecr[i], counterIncr[i]);
+                    disabledDecrButton(bedroom, 1, decrAmenities[i], incrAmenities[i]);
+                    counterNumAmenities[i].textContent = bedroom;
                 } if(e.target.classList.contains("bed-min")) {
                     bed--;
-                    counterNum[i].textContent = bed;
-                    disabledThisButton(bed, 1, counterDecr[i], counterIncr[i]);
+                    disabledDecrButton(bed, 1, decrAmenities[i], incrAmenities[i]);
+                    counterNumAmenities[i].textContent = bed;
                 } if(e.target.classList.contains("bathroom-min")) {
                     bathroom--;
-                    counterNum[i].textContent = bathroom;
-                    disabledThisButton(bathroom, 0, counterDecr[i], counterIncr[i]);
+                    disabledDecrButton(bathroom, 0, decrAmenities[i], incrAmenities[i]);
+                    counterNumAmenities[i].textContent = bathroom;
                 }
                 showCountOfAmenities();
-            } else {
+            } if(e.target == incrAmenities[i]) {
                 if(e.target.classList.contains("bedroom-max")) {
                     bedroom++;
-                    counterNum[i].textContent = bedroom;
-                    disabledThisButton(bedroom, 4, counterDecr[i], counterIncr[i]);
+                    disabledIncrButton(bedroom, 4, decrAmenities[i], incrAmenities[i]);
+                    counterNumAmenities[i].textContent = bedroom;
                 } if(e.target.classList.contains("bed-max")) {
                     bed++;
-                    counterNum[i].textContent = bed;
-                    disabledThisButton(bed, 4, counterDecr[i], counterIncr[i]);
+                    disabledIncrButton(bed, 4, decrAmenities[i], incrAmenities[i]);
+                    counterNumAmenities[i].textContent = bed;
                 } if(e.target.classList.contains("bathroom-max")) {
                     bathroom++;
-                    counterNum[i].textContent = bathroom;
-                    disabledThisButton(bathroom, 4, counterDecr[i], counterIncr[i]);
+                    disabledIncrButton(bathroom, 4, decrAmenities[i], incrAmenities[i]);
+                    counterNumAmenities[i].textContent = bathroom;
                 }
                 showCountOfAmenities();
             }
@@ -97,51 +116,147 @@ counter.forEach((item, i) => {
     });
 });
 
+counterGuest.forEach((item, i) => {
+    
+    if(decrGuest[i].classList.contains("bedroom-min")) {
+        decrGuest[i].classList.remove("bedroom-min");
+        incrGuest[i].classList.remove("bedroom-max");
+        decrGuest[i].classList.add("adults-min");
+        incrGuest[i].classList.add("adults-max");
+        
+        counterNumGuest[i].textContent = adults;
+        counterNumGuest[i].classList.add("adults-num");
+    } if(decrGuest[i].classList.contains("bed-min")) {
+        decrGuest[i].classList.remove("bed-min");
+        incrGuest[i].classList.remove("bed-max");
+        decrGuest[i].classList.add("children-min");
+        incrGuest[i].classList.add("children-max");
+
+        counterNumGuest[i].textContent = children;
+        counterNumGuest[i].classList.add("children-num");
+    } if(decrGuest[i].classList.contains("bathroom-min")) {
+        decrGuest[i].classList.remove("bathroom-min");
+        incrGuest[i].classList.remove("bathroom-max");
+        decrGuest[i].classList.add("babys-min");
+        incrGuest[i].classList.add("babys-max");
+
+        counterNumGuest[i].textContent = babys;
+        counterNumGuest[i].classList.add("babys-num");
+    }
+
+    item.addEventListener("click", (e) => {
+
+        if(e.target && e.target.nodeName === "BUTTON") {
+
+            if(e.target == decrGuest[i]) {
+                if(e.target.classList.contains("adults-min")) {
+                    adults--;
+                    disabledDecrButton(adults, 0, decrGuest[i], incrGuest[i]);
+                    counterNumGuest[i].textContent = adults;
+                } if(e.target.classList.contains("children-min")) {
+                    children--;
+                    disabledDecrButton(children, 0, decrGuest[i], incrGuest[i]);
+                    counterNumGuest[i].textContent = children;
+                } if(e.target.classList.contains("babys-min")) {
+                    babys--;
+                    disabledDecrButton(babys, 0, decrGuest[i], incrGuest[i]);
+                    counterNumGuest[i].textContent = babys;
+                }
+                // showCountOfGuest();
+            } if(e.target == incrGuest[i]) {
+                if(e.target.classList.contains("adults-max")) {
+                    adults++;
+                    disabledIncrButton(adults, 4, decrGuest[i], incrGuest[i]);
+                    counterNumGuest[i].textContent = adults;
+                } if(e.target.classList.contains("children-max")) {
+                    children++;
+                    disabledIncrButton(children, 4, decrGuest[i], incrGuest[i]);
+                    counterNumGuest[i].textContent = children;
+                } if(e.target.classList.contains("babys-max")) {
+                    babys++;
+                    disabledIncrButton(babys, 4, decrGuest[i], incrGuest[i]);
+                    counterNumGuest[i].textContent = babys;
+                }
+                // showCountOfGuest();
+            }
+        }
+    });
+});
+
+choiceBtnGuest.addEventListener("click", (e) => {
+    if(e.target && e.target.nodeName === "BUTTON") {
+        if(e.target.classList.contains("choice-button__decline")) {
+            adults = 0;
+            children = 0;
+            babys = 0;
+            document.querySelector(".adults-num").textContent = adults;
+            document.querySelector(".children-num").textContent = children;
+            document.querySelector(".babys-num").textContent = babys;
+            showCountOfGuest();
+        } if(e.target.classList.contains("choice-button__accept")) {
+            document.querySelector(".adults-num").textContent = adults;
+            document.querySelector(".children-num").textContent = children;
+            document.querySelector(".babys-num").textContent = babys;
+            showCountOfGuest();
+        }
+    }
+});
+
 function showCountOfAmenities() {
 
-    dropText.forEach((item) => {
+    inputTextAmenities.textContent = `${bedroom} спальни, ${bed} кровати, ${bathroom} ванные комнаты`;
 
-        item.textContent = `${bedroom} спальни, ${bed} кровати, ${bathroom} ванные комнаты`;
+    if(bedroom === 1) {
+        inputTextAmenities.textContent = `${bedroom} спальня, ${bed} кровати, ${bathroom} ванные комнаты`;
+    } if(bed === 1) {
+        inputTextAmenities.textContent = `${bedroom} спальни, ${bed} кровать, ${bathroom} ванные комнаты`;
+    } if (bedroom === 1 && bed === 1) {
+        inputTextAmenities.textContent = `${bedroom} спальня, ${bed} кровать, ${bathroom} ванные комнаты`;
+    }
 
-        if(bedroom === 1) {
-            item.textContent = `${bedroom} спальня, ${bed} кровати, ${bathroom} ванные комнаты`;
-        } if(bed === 1) {
-            item.textContent = `${bedroom} спальни, ${bed} кровать, ${bathroom} ванные комнаты`;
-        } if (bedroom === 1 && bed === 1) {
-            item.textContent = `${bedroom} спальня, ${bed} кровать, ${bathroom} ванные комнаты`;
-        }
+    let sliced = inputTextAmenities.textContent.slice(0, 20);
 
-        let sliced = item.textContent.slice(0, 20);
-    
-        if(sliced.length < item.textContent.length) {
-            sliced += "...";
-            item.textContent = sliced;
-        }
-    
-    });
+    if(sliced.length < inputTextAmenities.textContent.length) {
+        sliced += "...";
+        inputTextAmenities.textContent = sliced;
+    }
+
 }
 
-function disabledThisButton(item, num, decrButton, incrButton) {
-    if(num == 1 || 0) {
-        if(item <= num) {
-            item = num;
-            decrButton.disabled = true;
-            incrButton.disabled = false;
-        } if(item > num) {
-            decrButton.disabled = false;
-            incrButton.disabled = false;
-        }
-    } 
-    else {
-        if(item >= num) {
-            item = num;
-            incrButton.disabled = true;
-            decrButton.disabled = false;
-        } else {
-            incrButton.disabled = false;
-            decrButton.disabled = false;
-        }
+function showCountOfGuest() {
+    let number = adults + children + babys;
+    
+    inputTextGuest.textContent = `Сколько гостей`;
+
+    if (number === 1) {
+        inputTextGuest.textContent = `${number} гость`;
+    } if(number > 1 && number < 5) {
+        inputTextGuest.textContent = `${number} гостя`;
+    } if(number >= 5) {
+        inputTextGuest.textContent = `${number} гостей`;
     }
 }
 
-// if()
+function disabledDecrButton(item, num, decrButton, incrButton) {
+
+    if(item <= num) {
+        item = num;
+        decrButton.disabled = true;
+        incrButton.disabled = false;
+    } else {
+        decrButton.disabled = false;
+        incrButton.disabled = false;
+    }
+}
+
+function disabledIncrButton(item, num, decrButton, incrButton) {
+
+    if(item >= num) {
+        item = num;
+        incrButton.disabled = true;
+        decrButton.disabled = false;
+    } else {
+        incrButton.disabled = false;
+        decrButton.disabled = false;
+    }
+}

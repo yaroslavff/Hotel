@@ -114,6 +114,24 @@
 
 }
 
+.choice-button {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    margin-top: 20px;
+    
+    &__decline, &__accept {
+        cursor: pointer;
+        @include labelText;
+        @include bold;
+        color: $mainColor;
+        outline: none;
+        border: none;
+        background: #FFFFFF;
+        padding: 0;
+    }
+}
+
 .arrow {
     cursor: pointer;
     width: 44px;

@@ -25,7 +25,7 @@ block content
                     .inputs
                         +inputField({type: "text", placeholder: "Email", title: "Text Field", subtitle: "Default", inputField: "small-margin"})
                         +inputField({type: "text", placeholder: "This is pretty awesome", title: "Text Field", subtitle: "Hover / Focus", inputClass: "input__content_active", inputField: "small-margin"})
-                        +dropdawnField({text: "Сколько гостей", title: "Dropdown", dropdawnField: "small-margin"})
+                        +dropdawnField({text: "Сколько гостей", title: "Dropdown", dropdawnField: "small-margin", dropdawnGuestData: true})
                         +inputField({type: "text", placeholder: "ДД.ММ.ГГГГ", title: "masked text field", inputClass: "js-input__content-date", inputField: "big-margin"})
                         div(class = "dropdawn__date big-margin")
                             +dropdawnDateField({text: "ДД.ММ.ГГГГ", title: "date dropdown", inputClass: "input__content_small"})
@@ -67,6 +67,6 @@ block content
             .form__elements
                 section.section-wrapper
                     .drop-checkbox
-                        +dropdawnField({title: "Dropdown", subtitle: "default", dropdawnField: "small-margin", inputClass: "input__content_middle"})
-                        +dropdawnField({title: "Dropdown", subtitle: "expanded", inputClass: "input__content_middle"})
+                        +dropdawnField({text: "2 спальни, 2 кровати...", title: "Dropdown", subtitle: "default", dropdawnField: "small-margin", inputClass: "input__content_middle"})
+                        +dropdawnField({text: "2 спальни, 2 кровати...", title: "Dropdown", subtitle: "expanded", inputClass: "input__content_middle", panel: true, dropdawnAmenitiesData: true})
                     //- .drop-expanded
