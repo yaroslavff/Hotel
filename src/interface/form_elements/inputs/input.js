@@ -7,10 +7,10 @@ $(function() {
 
 });
 
-// dropdawn-panel
+// dropdown-panel
 
 const inputText = document.querySelectorAll(".js-input__content");
-const dropdawn = document.querySelectorAll(".js-dropdawn-panel");
+const dropdown = document.querySelectorAll(".js-dropdown-panel");
 
 let toggleDropPanel = (input, item, itemClass) => {
 
@@ -18,12 +18,12 @@ let toggleDropPanel = (input, item, itemClass) => {
 
         item.classList.remove("hidden-content");
         item.classList.add(itemClass, "drop-show");
-        input.classList.add("dropdawn-panel-input");
+        input.classList.add("dropdown-panel-input");
     } else {
 
         item.classList.add("hidden-content");
         item.classList.remove(itemClass);
-        input.classList.remove("dropdawn-panel-input");
+        input.classList.remove("dropdown-panel-input");
     }
     
 
@@ -35,7 +35,7 @@ inputText.forEach((input, i) => {
 
         if(e.target && e.target.classList.contains("arrow")) {
 
-            toggleDropPanel(input, dropdawn[i], "dropdawn-panel");
+            toggleDropPanel(input, dropdown[i], "dropdown-panel");
 
         }
 
@@ -43,20 +43,21 @@ inputText.forEach((input, i) => {
 
 });
 
-const dropdawnAmenities = document.querySelector(`[data-dropdawn="amenities"]`);
-const counterAmenities = dropdawnAmenities.querySelectorAll(`.js-counter__content`);
-const decrAmenities = dropdawnAmenities.querySelectorAll(".js-counter__min");
-const incrAmenities = dropdawnAmenities.querySelectorAll(".js-counter__max");
-const counterNumAmenities = dropdawnAmenities.querySelectorAll(".js-counter__num");
-const inputTextAmenities = dropdawnAmenities.querySelector(".dropdawn__field span");
+const dropdownAmenities = document.querySelector(`[data-dropdown="amenities"]`);
+const counterAmenities = dropdownAmenities.querySelectorAll(`.js-counter__content`);
+const decrAmenities = dropdownAmenities.querySelectorAll(".js-counter__min");
+const incrAmenities = dropdownAmenities.querySelectorAll(".js-counter__max");
+const counterNumAmenities = dropdownAmenities.querySelectorAll(".js-counter__num");
+const inputTextAmenities = dropdownAmenities.querySelector(".dropdown__field span");
 
-const dropdawnGuest = document.querySelector(`[data-dropdawn="guest"]`);
-const counterGuest = dropdawnGuest.querySelectorAll(`.js-counter__content`);
-const decrGuest = dropdawnGuest.querySelectorAll(".js-counter__min");
-const incrGuest = dropdawnGuest.querySelectorAll(".js-counter__max");
-const counterNumGuest = dropdawnGuest.querySelectorAll(".js-counter__num");
-const inputTextGuest = dropdawnGuest.querySelector(".dropdawn__field span");
-const choiceBtnGuest = document.querySelector(".choice-button");
+const dropdownGuest = document.querySelector(`[data-dropdown="guest"]`);
+const counterGuest = dropdownGuest.querySelectorAll(`.js-counter__content`);
+const decrGuest = dropdownGuest.querySelectorAll(".js-counter__min");
+const incrGuest = dropdownGuest.querySelectorAll(".js-counter__max");
+const counterNumGuest = dropdownGuest.querySelectorAll(".js-counter__num");
+const inputTextGuest = dropdownGuest.querySelector(".dropdown__field span");
+const choiceBtnGuest = dropdownGuest.querySelector(".choice-button");
+const choiceBtnDeclineGuest = choiceBtnGuest.querySelector(".choice-button__decline");
 
 let bedroom = 2,
     bed = 2,
@@ -162,7 +163,7 @@ counterGuest.forEach((item, i) => {
                     disabledDecrButton(babys, 0, decrGuest[i], incrGuest[i]);
                     counterNumGuest[i].textContent = babys;
                 }
-                // showCountOfGuest();
+                hiddenDeclineBtn(choiceBtnDeclineGuest, adults, children, babys);
             } if(e.target == incrGuest[i]) {
                 if(e.target.classList.contains("adults-max")) {
                     adults++;
@@ -177,11 +178,13 @@ counterGuest.forEach((item, i) => {
                     disabledIncrButton(babys, 4, decrGuest[i], incrGuest[i]);
                     counterNumGuest[i].textContent = babys;
                 }
-                // showCountOfGuest();
+                hiddenDeclineBtn(choiceBtnDeclineGuest, adults, children, babys);
             }
         }
     });
 });
+
+hiddenDeclineBtn(choiceBtnDeclineGuest, adults, children, babys);
 
 choiceBtnGuest.addEventListener("click", (e) => {
     if(e.target && e.target.nodeName === "BUTTON") {
@@ -192,7 +195,13 @@ choiceBtnGuest.addEventListener("click", (e) => {
             document.querySelector(".adults-num").textContent = adults;
             document.querySelector(".children-num").textContent = children;
             document.querySelector(".babys-num").textContent = babys;
+            counterGuest.forEach((item, i) => {
+                disabledDecrButton(adults, 0, decrGuest[i], incrGuest[i]);
+                disabledDecrButton(children, 0, decrGuest[i], incrGuest[i]);
+                disabledDecrButton(babys, 0, decrGuest[i], incrGuest[i]);
+            });
             showCountOfGuest();
+            hiddenDeclineBtn(choiceBtnDeclineGuest, adults, children, babys);
         } if(e.target.classList.contains("choice-button__accept")) {
             document.querySelector(".adults-num").textContent = adults;
             document.querySelector(".children-num").textContent = children;
@@ -201,6 +210,22 @@ choiceBtnGuest.addEventListener("click", (e) => {
         }
     }
 });
+
+function hiddenDeclineBtn(btn, ...arg) {
+    function arrSum(arr) {
+        let n = 0;
+        for (let i = 0; i < arr.length; i++) {
+            n += arr[i];
+        }
+        return n;
+    }
+
+    if(arrSum(arg) === 0 && inputTextGuest.textContent === "Сколько гостей") {
+        btn.classList.add("hidden-content");
+    } else {
+        btn.classList.remove("hidden-content");
+    }
+}
 
 function showCountOfAmenities() {
 

@@ -60,12 +60,12 @@
         }
     }
     
-    &__dropdawn {
+    &__dropdown {
         display: block;
     }
 }
 
-.dropdawn {
+.dropdown {
     cursor: pointer;
 
     &__field {
@@ -87,7 +87,7 @@
         cursor: default;
         user-select: none;
         @include dark(0.5, border);
-        padding: 7px 7px 7px 15px;
+        padding: 7px 7px 0 15px;
         max-height: 100%;
         overflow: hidden;
         border-bottom-left-radius: 4px;
@@ -112,24 +112,6 @@
         }
     }
 
-}
-
-.choice-button {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 6px;
-    margin-top: 20px;
-    
-    &__decline, &__accept {
-        cursor: pointer;
-        @include labelText;
-        @include bold;
-        color: $mainColor;
-        outline: none;
-        border: none;
-        background: #FFFFFF;
-        padding: 0;
-    }
 }
 
 .arrow {
@@ -231,6 +213,24 @@
             @include dark(0.25);
             @include dark(0.25, border);
         }
+    }
+}
+
+.choice-button {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    margin-top: 14px;
+    
+    &__decline, &__accept {
+        cursor: pointer;
+        @include labelText;
+        @include bold;
+        color: $mainColor;
+        outline: none;
+        border: none;
+        background: #FFFFFF;
+        padding: 0;
     }
 }
 

@@ -20,13 +20,13 @@ mixin inputField(options)
             span(class = "input__subtitle")= options.subtitle
         input(name = options.name, class = inputClass, type = options.type, placeholder = options.placeholder, id = options.id)
 
-mixin dropdawnField(options)
+mixin dropdownField(options)
     -
-        let dropdawnField = "input dropdawn"
-        if(Boolean(options.dropdawnField) == true) {
-            dropdawnField += ` ${options.dropdawnField}`
+        let dropdownField = "input dropdown"
+        if(Boolean(options.dropdownField) == true) {
+            dropdownField += ` ${options.dropdownField}`
         } else {
-            dropdawnField = dropdawnField
+            dropdownField = dropdownField
         }
 
         let inputClass = "input__content js-input__content"
@@ -41,66 +41,84 @@ mixin dropdawnField(options)
             thirdChoice = "ванные комнаты"
             disButton = false
             choiceBtn = "hidden-content"
-        let dropdawnData = false
-        if(options.dropdawnAmenitiesData == true) {
-            dropdawnData = "amenities"
-        } if(options.dropdawnGuestData == true) {
+            firstNum = 2
+            secondNum = 2
+            thirdNum = 0
+            dropdownData = false
+        if(options.dropdownAmenitiesData === true) {
+            dropdownData = "amenities"
+        } if(options.guest === true) {
+            firstNum = 2
+            secondNum = 1
             disButton = true
-            dropdawnData = "guest"
             firstChoice = "взрослые"
             secondChoice = "дети"
             thirdChoice = "младенцы"
             choiceBtn = "choice-button"
+        } if(options.dropdownGuestData === true) {
+            disButton = true
+            firstChoice = "взрослые"
+            secondChoice = "дети"
+            thirdChoice = "младенцы"
+            choiceBtn = "choice-button"
+            dropdownData = "guest"
+        } if(options.zeroNum === true) {
+            firstNum = 0
+            secondNum = 0
+            thirdNum = 0
         }
 
-        let panel = "hidden-content js-dropdawn-panel"
+        let panel = "hidden-content js-dropdown-panel"
         if(options.panel == true) {
-            panel = "dropdawn-panel js-dropdawn-panel"
+            panel = "dropdown-panel js-dropdown-panel"
+            inputClass += " dropdown-panel-input"
         }
 
-    div(class = dropdawnField, data-dropdawn = dropdawnData)
+    div(class = dropdownField, data-dropdown = dropdownData)
         .input__description
             h3.main-title= options.title
             span(class = "input__subtitle")= options.subtitle
         div(class = inputClass)
-            div(class = "dropdawn__field")
+            div(class = "dropdown__field")
                 span(class = "js-input-text", id = options.id)= options.text
                 div(class = "arrow")
                     div(class = "arrow__list")
         div(class = `${panel} ${options.inputClass}`)
-            .dropdawn-panel__wrapper
-                div(class = "dropdawn-panel__content counter")
+            .dropdown-panel__wrapper
+                div(class = "dropdown-panel__content counter")
                     div
                         span(class = "main-title")= firstChoice
                     div(class = "counter__content js-counter__content")
                         button(class = "counter__min js-counter__min bedroom-min", disabled = disButton) -
-                        span(class = "counter__num js-counter__num main-title") 2
+                        span(class = "counter__num js-counter__num main-title")= firstNum
                         button(class = "counter__max js-counter__max bedroom-max") +
-                div(class = "dropdawn-panel__content counter")
+                div(class = "dropdown-panel__content counter")
                     div
                         span(class = "main-title")= secondChoice
                     div(class = "counter__content js-counter__content")
                         button(class = "counter__min js-counter__min bed-min", disabled = disButton) -
-                        span(class = "counter__num js-counter__num main-title") 2
+                        span(class = "counter__num js-counter__num main-title")= secondNum
                         button(class = "counter__max js-counter__max bed-max") +
-                div(class = "dropdawn-panel__content counter")
+                div(class = "dropdown-panel__content counter")
                     div
                         span(class = "main-title")= thirdChoice
                     div(class = "counter__content js-counter__content")
                         button(class = "counter__min js-counter__min bathroom-min", disabled = true) -
-                        span(class = "counter__num js-counter__num main-title") 0
+                        span(class = "counter__num js-counter__num main-title")= thirdNum
                         button(class = "counter__max js-counter__max bathroom-max") +
                 div(class = choiceBtn)
-                    button(class = "choice-button__decline") очистить
-                    button(class = "choice-button__accept") применить
+                    div
+                        button(class = "choice-button__decline hidden-content") очистить
+                    div
+                        button(class = "choice-button__accept") применить
 
-mixin dropdawnDateField(options)
+mixin dropdownDateField(options)
     -
-        let dropdawnField = ("input dropdawn")
-        if(Boolean(options.dropdawnField) == true) {
-            dropdawnField += ` ${options.dropdawnField}`
+        let dropdownField = ("input dropdown")
+        if(Boolean(options.dropdownField) == true) {
+            dropdownField += ` ${options.dropdownField}`
         } else {
-            dropdawnField = dropdawnField
+            dropdownField = dropdownField
         }
 
         let inputClass = ("input__content")
@@ -110,13 +128,13 @@ mixin dropdawnDateField(options)
             inputClass = inputClass
         }
 
-    div(class = dropdawnField)
+    div(class = dropdownField)
         .input__description
             h3.main-title= options.title
             span(class = "input__subtitle")= options.subtitle
         div(class = inputClass)
-            div(class = "dropdawn__field")
-                div(name = options.name, class = options.dropdawnClass, id = options.id)= options.text
+            div(class = "dropdown__field")
+                div(name = options.name, class = options.dropdownClass, id = options.id)= options.text
                 div(class = "arrow")
                     div(class = "arrow__list")
 
