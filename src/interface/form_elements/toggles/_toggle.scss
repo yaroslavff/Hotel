@@ -71,20 +71,31 @@
 
 .checkbox {
     &__title {
-        padding-bottom: 16px;
+        display: flex;
+        margin-bottom: 4px;
+        justify-content: space-between;
+        align-items: center
     }
 
-    &__descr {
-        cursor: pointer;
-        display: flex;
-        position: relative;
-        @include pageText(none, 18px);
-        @include dark(0.5);
+    &__field {
         margin-bottom: 10px;
         &:last-child {
             margin: 0;
         }
+    }
+
+    &__descr {
+        cursor: pointer;
+        // max-width: 222px;
+        display: flex;
+        // flex-wrap: wrap;
+        position: relative;
+        @include pageText(none, 18px);
+        @include dark(0.5);
         user-select: none;
+        // & p {
+        //     display: block;
+        // }
     }
 
     &__input {

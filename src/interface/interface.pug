@@ -65,12 +65,19 @@ block content
                         +pagination({title: true})
         .container
             .form__elements
-                section.section-wrapper
+                section(class = "section-wrapper section-wrapper__dropdawn")
                     section
-                        +dropdownField({text: "2 спальни, 2 кровати...", title: "Dropdown", subtitle: "default", dropdownField: "small-margin", inputClass: "input__content_middle"})
-                        +dropdownField({text: "2 спальни, 2 кровати...", title: "Dropdown", subtitle: "expanded", inputClass: "input__content_middle", panel: true, dropdownAmenitiesData: true})
+                        div
+                            +dropdownField({text: "2 спальни, 2 кровати...", title: "Dropdown", subtitle: "default", dropdownField: "small-margin", inputClass: "input__content_middle"})
+                            +dropdownField({text: "2 спальни, 2 кровати...", title: "Dropdown", subtitle: "expanded", dropdownField: "big-margin", inputClass: "input__content_middle", panel: true, dropdownAmenitiesData: true})
+                        div
+                            +expandableCheckButton({title: "expandable checkbox list", isChecked: true, checkField: "big-margin"})
+                            +expandableCheckButton({title: "expandable checkbox list", isChecked: true, dataPanel: true})
                     section
                         +dropdownField({text: "Сколько гостей", title: "Dropdown", dropdownField: "small-margin", guest: true, zeroNum: true, panel: true})
                     section
                         +dropdownField({text: "Сколько гостей", title: "Dropdown", dropdownField: "small-margin", dropdownGuestData: true, panel: true})
-                    //- .drop-expanded
+                section(class = "section-wrapper section-wrapper__checkbox")
+                    section
+                    section
+                    section

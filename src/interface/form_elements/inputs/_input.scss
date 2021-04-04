@@ -116,8 +116,8 @@
 
 .arrow {
     cursor: pointer;
-    width: 44px;
-    height: 100%;
+    width: 40px;
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -129,6 +129,10 @@
         border-right: 2px solid rgba(31, 32, 65, 0.5);
         border-top: 2px solid rgba(31, 32, 65, 0.5);
         transform: rotate(135deg);
+        transition: ease-in-out 0.2s;
+        &_open {
+            transform: rotate(-45deg);
+        }
     }
 
     &__subscribe {
@@ -174,7 +178,7 @@
     display: inline-block;
     &__arrow {
         position: absolute;
-        top: 0;
+        top: 1px;
         right: 0;
     }
 }

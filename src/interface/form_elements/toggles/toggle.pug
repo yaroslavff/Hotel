@@ -1,3 +1,20 @@
+mixin checkItem(settings)
+    -
+        let checkboxField = "checkbox__field"
+        if(settings.hide === true) {
+            checkboxField = "hidden-content"
+        }
+        if(settings.text2 == "") {
+            secondString = "hidden-content"
+        }
+
+    div(class = checkboxField)
+        input(type = "checkbox", id = settings.id, class = "checkbox__input", checked = settings.checked)
+        label(for = settings.id, class = "checkbox__descr")
+            div
+                p= settings.text
+                p(class = secondString)= settings.text2
+
 mixin checkButton(options)
     -
         let isChecked = false
@@ -12,23 +29,70 @@ mixin checkButton(options)
             checkField = checkField
         }
 
-    div(class = checkField)
+        let smoking = ""
+            pets = ""
+            guest = ""
+            dataCheckbox = false
+        dataCheckbox = (options.data === true) ? true : false
+        if(dataCheckbox === true) {
+            smoking = "smoking"
+            pets = "pets"
+            guest = "guest"
+        }
+
+    div(class = checkField, data-checkbox = dataCheckbox)
         h3(class = "checkbox__title main-title")= options.title
         .checkbox__wrapper
-            input(type = "checkbox", id = "smoking", class = "checkbox__input")
-            label(for = "smoking", class = "checkbox__descr")
-                span Можно курить
+            +checkItem({id: smoking, text: "Можно курить"})
+            +checkItem({id: pets, text: "Можно с питомцами", checked: isChecked})
+            +checkItem({id: guest, text: "Можно пригласить гостей", text2: " (до 10 человек)", checked: isChecked})
 
-            input(type = "checkbox", id = "pets", class = "checkbox__input", checked = isChecked)
-            label(for = "pets", class = "checkbox__descr")
-                span Можно с питомцами
+mixin expandableCheckButton(options)
+    -
+        let isChecked = false
+        if(options.isChecked == true) {
+            isChecked = true
+        }
 
-            input(type = "checkbox", id = "frends", class = "checkbox__input", checked = isChecked)
-            label(for = "frends", class = "checkbox__descr")
-                span  
-                    |Можно пригласить гостей
-                    br
-                    |(до 10 человек)
+        let checkField = ("checkbox")
+        if(Boolean(options.checkField) == true) {
+            checkField += ` ${options.checkField}`
+        } else {
+            checkField = checkField
+        }
+        
+        let checkboxPanel = "checkbox__wrapper hidden-content"
+            dataPanel = "close"
+            breakfast = ""
+            table = ""
+            childSeat = ""
+            babyBed = ""
+            tv = ""
+            shampoo = ""
+        if(options.panel === true) {
+            checkboxPanel = "checkbox__wrapper"
+        } if(options.dataPanel === true) {
+            dataPanel = "open"
+            breakfast = "breakfast"
+            table = "table"
+            childSeat = "children-seat"
+            babyBed = "baby-bed"
+            tv = "TV"
+            shampoo = "shampoo"
+        }
+
+    div(class = checkField, data-checkbox-panel = dataPanel)
+        div(class = "checkbox__title")
+            h3(class = "main-title")= options.title
+            div(class = "arrow")
+                div(class = "arrow__list")
+        div(class = checkboxPanel)
+            +checkItem({id: breakfast, text: "Завтрак"})
+            +checkItem({id: table, text: "Письменный стол", checked: isChecked})
+            +checkItem({id: childSeat, text: "Стул для кормления", checked: isChecked})
+            +checkItem({id: babyBed, text: "Кроватка", checked: isChecked})
+            +checkItem({id: tv, text: "Телевизор"})
+            +checkItem({id: shampoo, text: "Шампунь"})
 
 mixin radioButton(options)
     -
