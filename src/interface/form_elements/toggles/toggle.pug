@@ -1,19 +1,31 @@
 mixin checkItem(settings)
     -
         let checkboxField = "checkbox__field"
+            title = "checkbox__input-title"
+            subtitle = "checkbox__input-subtitle hidden-content"
         if(settings.hide === true) {
             checkboxField = "hidden-content"
         }
         if(settings.text2 == "") {
             secondString = "hidden-content"
         }
+        if(!!settings.subtitle === true) {
+            subtitle = "checkbox__input-subtitle "
+            title += " checkbox__input-title-rich"
+            if(!!settings.subClass === true) {
+                subtitle += settings.subClass
+            }
+        }
 
     div(class = checkboxField)
         input(type = "checkbox", id = settings.id, class = "checkbox__input", checked = settings.checked)
-        label(for = settings.id, class = "checkbox__descr")
-            div
-                p= settings.text
-                p(class = secondString)= settings.text2
+        label(for = settings.id, class = "checkbox__content")
+            div.checkbox__descr
+                div(class = title)
+                    p= settings.text
+                    p(class = secondString)= settings.text2
+                div(class = subtitle)
+                    p= settings.subtitle
 
 mixin checkButton(options)
     -
@@ -41,11 +53,37 @@ mixin checkButton(options)
         }
 
     div(class = checkField, data-checkbox = dataCheckbox)
-        h3(class = "checkbox__title main-title")= options.title
+        div(class = "checkbox__title")
+            h3(class = "main-title")= options.title
         .checkbox__wrapper
             +checkItem({id: smoking, text: "Можно курить"})
             +checkItem({id: pets, text: "Можно с питомцами", checked: isChecked})
             +checkItem({id: guest, text: "Можно пригласить гостей", text2: " (до 10 человек)", checked: isChecked})
+
+mixin richCheckButton(options)
+    -
+        let checkField = ("checkbox")
+        if(Boolean(options.checkField) == true) {
+            checkField += ` ${options.checkField}`
+        } else {
+            checkField = checkField
+        }
+
+        let hallway = ""
+            handicapped = ""
+            dataCheckbox = false
+        dataCheckbox = (options.data === true) ? true : false
+        if(dataCheckbox === true) {
+            hallway = "hallway"
+            handicapped = "handicapped"
+        }
+    
+    div(class = checkField, data-checkbox-rich = dataCheckbox)
+        div(class = "checkbox__title")
+            h3(class = "main-title")= options.title
+        .checkbox__wrapper
+            +checkItem({id: hallway, text: "Широкий коридор", subtitle: "Ширина коридоров в номере не менее 91 см.", subClass: "checkbox__input-subtitle_first"})
+            +checkItem({id: handicapped, text: "Помощник для инвалидов", subtitle: "На 1 этаже вас встретит специалист  и проводит до номера."})
 
 mixin expandableCheckButton(options)
     -

@@ -33,7 +33,7 @@ block content
                         +dropdownDateField({text: "19 авг - 23 авг", title: "filter date dropdown", dropdownField: "big-margin", inputClass: "input__content_middle"})
                         +subField({type: "text", placeholder: "Email", title: "subscription text field", inputClass: "input__content_middle", isPurple: true})
                     .toggles
-                        +checkButton({title: "Checkbox Buttons", isChecked: true, checkField: "big-margin"})
+                        +checkButton({title: "Checkbox Buttons", isChecked: true, checkField: "big-margin", data: true})
                         +radioButton({title: "Radio Buttons", isChecked: true, radioField: "big-margin"})
                         +switchButton({hideTitle: false, switchButtonActive: true})
                         +switchButton({hideTitle: true, switchField: "big-margin"})
@@ -66,18 +66,22 @@ block content
         .container
             .form__elements
                 section(class = "section-wrapper section-wrapper__dropdawn")
-                    section
+                    div
                         div
                             +dropdownField({text: "2 спальни, 2 кровати...", title: "Dropdown", subtitle: "default", dropdownField: "small-margin", inputClass: "input__content_middle"})
                             +dropdownField({text: "2 спальни, 2 кровати...", title: "Dropdown", subtitle: "expanded", dropdownField: "big-margin", inputClass: "input__content_middle", panel: true, dropdownAmenitiesData: true})
                         div
                             +expandableCheckButton({title: "expandable checkbox list", isChecked: true, checkField: "big-margin"})
                             +expandableCheckButton({title: "expandable checkbox list", isChecked: true, dataPanel: true})
-                    section
-                        +dropdownField({text: "Сколько гостей", title: "Dropdown", dropdownField: "small-margin", guest: true, zeroNum: true, panel: true})
-                    section
-                        +dropdownField({text: "Сколько гостей", title: "Dropdown", dropdownField: "small-margin", dropdownGuestData: true, panel: true})
-                section(class = "section-wrapper section-wrapper__checkbox")
+                    div
+                        div
+                            +dropdownField({text: "Сколько гостей", title: "Dropdown", dropdownField: "big-margin", guest: true, zeroNum: true, panel: true})
+                        div
+                            +richCheckButton({title: "rich Checkbox Buttons", data: true})
+                    div
+                        +dropdownField({text: "Сколько гостей", title: "Dropdown", dropdownField: "big-margin", dropdownGuestData: true, panel: true})
+                        include form_elements/list/list
+                section(class = "section-wrapper section-wrapper__comment")
                     section
                     section
                     section

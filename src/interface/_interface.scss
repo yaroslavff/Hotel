@@ -8,6 +8,8 @@
 @import './form_elements/toggles/toggle';
 // Buttons, range slider and pagination
 @import './form_elements/buttons/button';
+// Bullet list
+@import './form_elements/list/list';
 
 *,
 *::before,
@@ -21,7 +23,9 @@ h2,
 h3,
 h4,
 p,
-input {
+input,
+ul,
+li {
     margin: 0;
     padding: 0;
 }
