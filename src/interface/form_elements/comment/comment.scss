@@ -1,0 +1,27 @@
+.comment {
+    width: 710px;
+
+    &-person {
+        display: flex;
+        margin-bottom: 10px;
+
+        &__icon {
+            width: 48px;
+            height: 48px;
+            margin-right: 10px;
+        }
+
+        &__name {
+            @include bold;
+        }
+    }
+
+    &-panel {
+        display: flex;
+
+        &__like {
+            margin-left: 3px;
+            margin-right: 14px;
+        }
+    }
+}

@@ -1,7 +1,7 @@
 // Fonts and fonts mixin
-@import './textTypes/fonts';
+@import './colors_and_text/textTypes/fonts';
 // Colors and gradient
-@import './colors/colors';
+@import './colors_and_text/colors/colors';
 // Input and dropdawn input
 @import './form_elements/inputs/input';
 // Checkbox, radio, switch
@@ -10,6 +10,8 @@
 @import './form_elements/buttons/button';
 // Bullet list
 @import './form_elements/list/list';
+// Comment
+@import './form_elements/comment/comment';
 
 *,
 *::before,

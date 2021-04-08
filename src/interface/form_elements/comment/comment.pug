@@ -1,0 +1,16 @@
+mixin commentPanel(settings)
+
+    .comment
+        .comment-person
+            .comment-person__icon
+                img(src= "img/murad.png", alt="фотография пользователя")
+            .comment-person__info
+                .comment-person__name
+                    span Мурад Сарафанов
+                .comment-person__date
+                    span 5 дней назад
+        .comment-panel
+            .comment-panel__like
+                +likeButton({isLiked: true, num: 12})
+            .comment-panel__text
+                p Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.
