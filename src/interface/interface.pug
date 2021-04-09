@@ -6,7 +6,7 @@ include form_elements/buttons/button
 include form_elements/comment/comment
 
 block content
-    //- .types
+    .types
         .container
             section.section-wrapper
                 .colors
@@ -82,36 +82,10 @@ block content
                     div
                         +dropdownField({text: "Сколько гостей", title: "Dropdown", dropdownField: "big-margin", dropdownGuestData: true, panel: true})
                         include form_elements/list/list
+            
+            .form__elements
                 section(class = "section-wrapper section-wrapper__comment")
-                    div.interface-comment
-                        //- +commentPanel()
-                        //- <div>
-                        //-     <div class="comment">
-                        //-         <div class="comment-person">
-                        //-             <div class="comment-person__icon">
-                        //-                 <img src= alt="фотография пользователя">
-                        //-             </div>
-                        //-             <div class="comment-person__info">
-                        //-                 <div class="comment-person__name">
-                        //-                     <span>Мурад Сарафанов</span>
-                        //-                 </div>
-                        //-                 <div class="comment-person__date">
-                        //-                     <span>5 дней назад</span>
-                        //-                 </div>
-                        //-             </div>
-                        //-         </div>
-                        //-         <div class="comment-panel">
-                        //-             <div class="comment-panel__like">
-                        //-                 <div class="like js-like">
-                        //-                     <div class="like__btn js-like__btn">
-                        //-                         <img src="img/favorite.svg" alt="сердце">
-                        //-                     </div>
-                        //-                     <span class="like__counter js-like__counter">12</span>
-                        //-                 </div>
-                        //-             </div>
-                        //-             <div class="comment-panel__text">
-                        //-                 <p></p>
-                        //-             </div>
-                        //-         </div>
-                        //-     </div>
-                        //- </div>
+                    .conditions-wrapper
+                        +roomConditions({src: "./img/smile.svg", title: "Комфорт", subtitle: "Шумопоглащающие стены"})
+                        +roomConditions({src: "./img/city.svg", title: "Удобство", subtitle: "Окно в каждой из спален"})
+                    .interface-comment

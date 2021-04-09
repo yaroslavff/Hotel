@@ -65,9 +65,14 @@ img {
 .section-wrapper {
     display: flex;
     justify-content: space-between;
+    
+    &__comment {
+        align-items: center;
+    }
 }
 
 .types {
+    padding-top: 140px;
     margin-bottom: 100px;
 }
 

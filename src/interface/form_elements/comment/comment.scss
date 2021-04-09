@@ -1,5 +1,5 @@
 .comment {
-    width: 710px;
+    max-width: 710px;
 
     &-person {
         display: flex;
@@ -23,5 +23,33 @@
             margin-left: 3px;
             margin-right: 14px;
         }
+    }
+}
+
+.conditions {
+    width: 280px;
+    height: 88px;
+    @include dark(0.1, border);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    display: flex;
+    align-items: center;
+
+    &__content {
+        display: flex;
+    }
+
+    &__icon {
+        width: 48px;
+        height: 48px;
+        margin-right: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__title {
+        @include bold;
     }
 }
