@@ -1,29 +1,3 @@
-"use strict";
-
-// switch button
-
-const switchWrappers = document.querySelectorAll(".js-switch__wrapper");
-const switchButtons = document.querySelectorAll(".js-switch__btn");
-const switchDescr = document.querySelectorAll(".js-switch__descr");
-
-switchWrappers.forEach((item, i) => {
-
-    item.addEventListener("click", (event) => {
-        
-        if(event.target == switchDescr[i] || event.target == switchButtons[i]) {
-            
-            if(switchButtons[i].classList.contains("switch__btn_active")) {
-                switchButtons[i].classList.remove("switch__btn_active");
-            } else {
-                switchButtons[i].classList.add("switch__btn_active");
-            }
-
-        }
-
-    });
-
-});
-
 // like button
 
 const likeBtns = document.querySelectorAll(".js-like");
@@ -70,17 +44,4 @@ likeBtns.forEach((btn, i) => {
         }
 
     });
-});
-
-// checkboxDropdawn
-
-const checkDropdawnList = document.querySelector(`[data-checkbox-panel="open"]`);
-const checkboxPanel = checkDropdawnList.querySelector(".checkbox__wrapper");
-const checkArrowBox = checkDropdawnList.querySelector(".arrow");
-const checkArrow = checkArrowBox.querySelector(".arrow__list");
-
-checkArrowBox.addEventListener("click", () => {
-    
-    checkboxPanel.classList.toggle("hidden-content");
-    checkArrow.classList.toggle("arrow__list_open");
 });

@@ -1,0 +1,17 @@
+mixin likeButton(options)
+    -
+        let like = ("like js-like")
+        let likeBtn = ("like__btn js-like__btn")
+        let counter = ("like__counter js-like__counter")
+
+        if(options.isLiked == true) {
+            likeBtn += " like__btn_active"
+            like += " like_active"
+            counter += " like__counter_active"
+        } else {
+            likeBtn = ("like__btn js-like__btn")
+        }
+
+    div(class = like)
+        div(class = likeBtn)
+        span(class = counter)= options.num

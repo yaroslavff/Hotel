@@ -1,0 +1,36 @@
+.rating {
+    
+    width: 120px;
+    height: 24px;
+
+    & > span::before {
+        content: '☆';
+        color: $mainColor;
+    }
+
+    & > span.rating__star_active::before {
+        content: '★';
+    }
+    
+    &__star {
+        width: 24px;
+        height: 100%;
+        font-size: 24px;
+        margin: 0;
+        padding: 0;
+
+        
+    }
+
+    &-field {
+        width: 260px;
+
+        &__title {
+            margin-bottom: 16px;
+        }
+
+        &__content {
+            display: inline-flex;
+        }
+    }
+}

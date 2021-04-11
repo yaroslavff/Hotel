@@ -1,0 +1,31 @@
+mixin button(options)
+    -
+        let arrow = ("hidden-content")
+        let button = ("button__content")
+        let arrowContainer = ("hidden-content")
+
+        if(options.whiteButton == true) {
+            button += " button__content_white"
+            if(options.isActive == true) {
+            button += " button__content_active-white"
+            }
+        } else {
+            button = "button__content"
+            if(options.isActive == true) {
+            button += " button__content_active"
+            }
+        }
+
+        if(options.bigButton == true) {
+            button += " button-big"
+        }
+
+        if(options.arrow == true) {
+            arrowContainer = ("arrow sub-wrapper__arrow")
+            arrow = ("arrow__subscribe")
+        }
+
+    .button
+        input(type = "button", name = options.name, class = button, value = options.text)
+        div(class = arrowContainer)
+            div(class = arrow)

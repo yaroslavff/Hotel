@@ -1,0 +1,18 @@
+mixin rateButton(rate)
+    -
+        let star4 = ""
+        let star5 = ""
+
+        if(rate == 4) {
+            star4 = ("rating__star_active")
+        } if(rate == 5) {
+            star4 = ("rating__star_active")
+            star5 = ("rating__star_active")
+        }
+
+    .rating
+        span(class = `rating__star rating__star_active`)
+        span(class = `rating__star rating__star_active`)
+        span(class = `rating__star rating__star_active`)
+        span(class = `rating__star ${star4}`)
+        span(class = `rating__star ${star5}`)

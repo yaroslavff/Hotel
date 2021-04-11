@@ -1,0 +1,37 @@
+.pagination {
+    width: 240px;
+
+    &__title {
+        margin-bottom: 16px;
+    }
+
+    &__number {
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        @include dark(0.5);
+        @include labelText;
+        border: none;
+        border-radius: 22px;
+        outline: none;
+        background: transparent;
+        margin-bottom: 11px;
+
+        &_active {
+            color: white;
+            @include bold;
+            background: linear-gradient($primaryGradient);
+        }
+    }
+
+    &__arrow {
+        position: relative;
+        background: linear-gradient($secondaryGradient);
+        color: transparent;
+    }
+
+    &__subtitle {
+        @include dark(0.75);
+        text-align: center;
+    }
+}

@@ -1,0 +1,26 @@
+mixin switchButton(options)
+    -
+        let switchTitle = ("switch__title main-title")
+        if(options.hideTitle == true) {
+            switchTitle = ("hidden-content")
+        }
+
+        let switchField = ("switch")
+        if(Boolean(options.switchField) == true) {
+            switchField += ` ${options.switchField}`
+        } else {
+            switchField = switchField
+        }
+
+        let switchButton = ("switch__btn js-switch__btn")
+        if(options.switchButtonActive == true) {
+            switchButton += " switch__btn_active"
+        } else {
+            switchButton = ("switch__btn js-switch__btn")
+        }
+
+    div(class = switchField)
+        h3(class = switchTitle) toggle
+        div(class = "switch__wrapper js-switch__wrapper")
+            div(class = switchButton)
+            span(class = "switch__descr js-switch__descr") Получать спецпредложения

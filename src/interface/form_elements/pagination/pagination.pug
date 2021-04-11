@@ -1,0 +1,19 @@
+mixin pagination(options)
+    -
+        let title = "hidden-content"
+        if(options.title === true) {
+            title = "pagination__title main-title"
+        }
+    
+    .pagination
+        h3(class = title) pagination
+        .pagination__content
+            button(class = "pagination__number pagination__number_active") 1
+            button(class = "pagination__number") 2
+            button(class = "pagination__number") 3
+            button(class = "pagination__number pagination__number_skip") ...
+            button(class = "pagination__number") 15
+            button(class = "pagination__number pagination__arrow") .
+                div(class = "arrow sub-wrapper__arrow")
+                    div(class = "arrow__subscribe")
+        .pagination__subtitle 1 – 12 из 100+ вариантов аренды

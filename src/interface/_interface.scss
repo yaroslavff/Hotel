@@ -3,11 +3,23 @@
 // Colors and gradient
 @import './colors_and_text/colors/colors';
 // Input and dropdawn input
-@import './form_elements/inputs/input';
-// Checkbox, radio, switch
-@import './form_elements/toggles/toggle';
-// Buttons, range slider and pagination
-@import './form_elements/buttons/button';
+@import './form_elements/input/input';
+// Checkbox
+@import './form_elements/checkbox/checkbox';
+// Radio
+@import './form_elements/radio/radio';
+// Switch
+@import './form_elements/switch/switch';
+// Like Button
+@import './form_elements/like/like';
+// Rate Button
+@import './form_elements/rate/rate';
+// Buttons
+@import './form_elements/button/button';
+// Range slider
+@import './form_elements/range_slider/range';
+// Pagination
+@import './form_elements/pagination/pagination';
 // Bullet list
 @import './form_elements/list/list';
 // Comment

@@ -1,0 +1,90 @@
+@keyframes select {
+    from {opacity: 0;}
+    50% {opacity: 0.5;}
+    to {opacity: 1;}
+}
+
+.checkbox {
+
+    &__title {
+        display: flex;
+        margin-bottom: 4px;
+        height: 40px;
+        justify-content: space-between;
+        align-items: center
+    }
+
+    &__field {
+        margin-bottom: 10px;
+        &:last-child {
+            margin: 0;
+        }
+    }
+
+    &__content {
+        cursor: pointer;
+        display: flex;
+        position: relative;
+        @include pageText(none, 18px);
+        @include dark(0.5);
+        user-select: none;
+        // & p {
+        //     display: block;
+        // }
+    }
+
+    &__input {
+        position: absolute;
+        opacity: 0;
+        z-index: -1;
+
+        &-title-rich {
+            @include pageText(none, 18px);
+            @include bold;
+            @include dark(0.75);
+        }
+
+        &-subtitle {
+            @include labelText(none);
+            margin-top: 5px;
+            max-width: 230px;
+            &_first {
+                max-width: 200px;
+            }
+        }
+
+        & + .checkbox__content::before {
+            content: '';
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            @include dark(0.25, border);
+            border-radius: 4px;
+            background: #FFFFFF;
+            margin-right: 10px;
+        }
+
+        &:checked + .checkbox__content::before {
+            border: 1px solid $mainColor;
+        }
+
+        &:checked + .checkbox__content::after {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            width: 8px;
+            height: 6px;
+            border-width: 2px;
+            border-style: solid;
+            border-left: none;
+            border-bottom: none;
+            border-color: transparent;
+            border-image: linear-gradient($primaryGradient);
+            border-image-slice: 1;
+            transform: rotate(135deg);
+            animation: select 0.2s linear;
+        }
+    }
+}

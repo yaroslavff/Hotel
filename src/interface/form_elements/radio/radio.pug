@@ -1,0 +1,29 @@
+mixin radioButton(options)
+    -
+        let isChecked = false
+        if(options.isChecked == true) {
+            isChecked = true
+        }
+
+        let radioField = ("radio")
+        if(Boolean(options.radioField) == true) {
+            radioField += ` ${options.radioField}`
+        } else {
+            radioField = radioField
+        }
+
+        let radioTitle = ("radio__title main-title")
+        if(options.hideTitle == true) {
+            radioTitle = ("hidden-content")
+        }
+
+    div(class = radioField)
+        h3(class = radioTitle)= options.title
+        .radio__wrapper
+            input(type = "radio", name = "sex",id = "man", class = "radio__input", checked = isChecked)
+            label(for = "man", class = "radio__descr")
+                span Мужчина
+            
+            input(type = "radio", name = "sex",id = "woman", class = "radio__input")
+            label(for = "woman", class = "radio__descr")
+                span Женщина

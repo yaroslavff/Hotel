@@ -1,0 +1,75 @@
+@keyframes switch-on {
+    from {
+        left: 3px;
+        @include dark(0.25, background);
+    }
+
+    to {
+        left: 23px;
+        background: linear-gradient($primaryGradient);
+    }
+}
+
+@keyframes switch-off {
+    from {
+        left: 23px;
+        background: linear-gradient($primaryGradient);
+    }
+
+    to {
+        left: 3px;
+        @include dark(0.25, background);
+    }
+
+}
+
+.switch {
+    &__title {
+        padding-bottom: 16px;
+    }
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+    }
+
+    &__descr {
+        cursor: pointer;
+        user-select: none;
+    }
+
+    &__btn {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        width: 40px;
+        height: 20px;
+        @include dark(0.25, border);
+        border-radius: 10px;
+        margin-right: 10px;
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            top: 3px;
+            left: 3px;
+            @include dark(0.25, background);
+            border-radius: 10px;
+            transition: 0.2s;
+            animation: switch-off 0.2s ease;
+        }
+
+        &_active {
+            border: 1px solid $mainColor;
+
+            &::after {
+                left: 23px;
+                background: linear-gradient($primaryGradient);
+                animation: switch-on 0.2s ease;
+            }
+        }
+    }
+
+}
