@@ -86,7 +86,7 @@ block content
                         div
                             +richCheckButton({title: "rich Checkbox Buttons", data: true})
                     div
-                        +dropdownField({text: "Сколько гостей", title: "Dropdown", dropdownField: "big-margin", dropdownGuestData: true, panel: true})
+                        +dropdownField({text: "3 гостя", title: "Dropdown", dropdownField: "big-margin", dropdownGuestData: true, panel: true})
                         include form_elements/list/list
             
             .form__elements
@@ -95,3 +95,9 @@ block content
                         +roomConditions({src: "./img/smile.svg", title: "Комфорт", subtitle: "Шумопоглащающие стены"})
                         +roomConditions({src: "./img/city.svg", title: "Удобство", subtitle: "Окно в каждой из спален"})
                     .interface-comment
+    .form
+        .container
+            section.section-wrapper
+                .form__cards
+                    div
+                        include cards/search_form/search

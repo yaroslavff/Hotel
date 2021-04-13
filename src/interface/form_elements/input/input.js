@@ -55,15 +55,15 @@ const counterGuest = dropdownGuest.querySelectorAll(`.js-counter__content`);
 const decrGuest = dropdownGuest.querySelectorAll(".js-counter__min");
 const incrGuest = dropdownGuest.querySelectorAll(".js-counter__max");
 const counterNumGuest = dropdownGuest.querySelectorAll(".js-counter__num");
-const inputTextGuest = dropdownGuest.querySelector(".dropdown__field span");
-const choiceBtnGuest = dropdownGuest.querySelector(".choice-button");
-const choiceBtnDeclineGuest = choiceBtnGuest.querySelector(".choice-button__decline");
+const inputTextGuest = dropdownGuest.querySelector(".js-dropdown__field span");
+const choiceBtnGuest = dropdownGuest.querySelector(".js-choice-button");
+const choiceBtnDeclineGuest = choiceBtnGuest.querySelector(".js-choice-button__decline");
 
 let bedroom = 2,
     bed = 2,
     bathroom = 0,
-    adults = 0,
-    children = 0,
+    adults = 2,
+    children = 1,
     babys = 0;
 
 showCountOfAmenities();
@@ -163,6 +163,7 @@ counterGuest.forEach((item, i) => {
                     disabledDecrButton(babys, 0, decrGuest[i], incrGuest[i]);
                     counterNumGuest[i].textContent = babys;
                 }
+                showCountOfGuest();
                 hiddenDeclineBtn(choiceBtnDeclineGuest, adults, children, babys);
             } if(e.target == incrGuest[i]) {
                 if(e.target.classList.contains("adults-max")) {
@@ -178,6 +179,7 @@ counterGuest.forEach((item, i) => {
                     disabledIncrButton(babys, 4, decrGuest[i], incrGuest[i]);
                     counterNumGuest[i].textContent = babys;
                 }
+                showCountOfGuest();
                 hiddenDeclineBtn(choiceBtnDeclineGuest, adults, children, babys);
             }
         }
@@ -203,10 +205,11 @@ choiceBtnGuest.addEventListener("click", (e) => {
             showCountOfGuest();
             hiddenDeclineBtn(choiceBtnDeclineGuest, adults, children, babys);
         } if(e.target.classList.contains("choice-button__accept")) {
-            document.querySelector(".adults-num").textContent = adults;
-            document.querySelector(".children-num").textContent = children;
-            document.querySelector(".babys-num").textContent = babys;
-            showCountOfGuest();
+            if((adults + children + babys) > 0) {
+                dropdownGuest.querySelector(".js-input__content").classList.remove("dropdown-panel-input");
+                dropdownGuest.querySelector(".js-dropdown-panel").classList.remove("dropdown-panel");
+                dropdownGuest.querySelector(".js-dropdown-panel").classList.add("hidden-content");
+            }
         }
     }
 });

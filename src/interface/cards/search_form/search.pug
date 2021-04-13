@@ -1,0 +1,12 @@
+
+.search-form
+    .search-form__content
+        .search-form__title
+            span Найдём номера под ваши пожелания
+        dic(class = "search-form__date dropdown__date")
+            +dropdownDateField({text: "ДД.ММ.ГГГГ", title: "прибытие", inputClass: "input__content_small"})
+            +dropdownDateField({text: "ДД.ММ.ГГГГ", title: "выезд", inputClass: "input__content_small"})
+        .search-form__people-select
+            +dropdownField({text: "Сколько гостей", title: "гости", guest: true, zeroNum: true})
+        .search-form__submit
+            +button({text: "Подобрать номер", bigButton: true, arrow: true})

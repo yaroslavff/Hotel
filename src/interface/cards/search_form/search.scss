@@ -1,0 +1,25 @@
+.search-form {
+    max-width: 380px;
+    max-height: 374px;
+    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+
+    &__content {
+        padding: 40px 30px 30px 30px;
+    }
+
+    &__title {
+        @include sectionText;
+        @include bold;
+        @include dark(1);
+        margin-bottom: 21px;
+    }
+
+    &__date {
+        margin-bottom: 20px;
+    }
+
+    &__people-select {
+        margin-bottom: 31px;
+    }
+}

@@ -23,17 +23,17 @@ mixin inputField(options)
 mixin dropdownField(options)
     -
         let dropdownField = "input dropdown"
-        if(Boolean(options.dropdownField) == true) {
+        if(!!options.dropdownField === true) {
             dropdownField += ` ${options.dropdownField}`
         } else {
-            dropdownField = dropdownField
+            dropdownField = "input dropdown"
         }
 
         let inputClass = "input__content js-input__content"
-        if(Boolean(options.inputClass) == true) {
+        if(!!options.inputClass === true) {
             inputClass += ` ${options.inputClass}`
         } else {
-            inputClass = inputClass
+            inputClass = "input__content js-input__content"
         }
 
         let firstChoice = "спальни"
@@ -54,13 +54,13 @@ mixin dropdownField(options)
             firstChoice = "взрослые"
             secondChoice = "дети"
             thirdChoice = "младенцы"
-            choiceBtn = "choice-button"
+            choiceBtn = "choice-button js-choice-button"
         } if(options.dropdownGuestData === true) {
             disButton = true
             firstChoice = "взрослые"
             secondChoice = "дети"
             thirdChoice = "младенцы"
-            choiceBtn = "choice-button"
+            choiceBtn = "choice-button js-choice-button"
             dropdownData = "guest"
         } if(options.zeroNum === true) {
             firstNum = 0
@@ -79,8 +79,8 @@ mixin dropdownField(options)
             h3.main-title= options.title
             span(class = "input__subtitle")= options.subtitle
         div(class = inputClass)
-            div(class = "dropdown__field")
-                span(class = "js-input-text", id = options.id)= options.text
+            div(class = "dropdown__field js-dropdown__field")
+                span= options.text
                 div(class = "arrow")
                     div(class = "arrow__list")
         div(class = `${panel} ${options.inputClass}`)
@@ -108,9 +108,9 @@ mixin dropdownField(options)
                         button(class = "counter__max js-counter__max bathroom-max") +
                 div(class = choiceBtn)
                     div
-                        button(class = "choice-button__decline hidden-content") очистить
+                        button(class = "choice-button__decline js-choice-button__decline hidden-content") очистить
                     div
-                        button(class = "choice-button__accept") применить
+                        button(class = "choice-button__accept js-choice-button__accept") применить
 
 mixin dropdownDateField(options)
     -
